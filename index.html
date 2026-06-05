@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Databases Explained Simply</title>
+    <title>Authentication Explained Simply</title>
     <link rel="stylesheet" href="style.css">
     <!-- Phosphor Icons for video visual support -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -22,265 +22,339 @@
         <div class="content-card card-border-black hero-card">
             <div class="card-header-badge">THREAD</div>
             <h1 class="card-title">
-                Databases Explained Simply:<br><span>The Memory of Your App</span>
+                Authentication Explained:<br><span>How Login Systems Work</span>
             </h1>
             <p class="card-body" style="font-weight: 600; color: #a5b4fc;">
-                • You think you know what a database is. You probably don't. At least not fully. Let's fix that. 👇
+                • Every app asks you to log in. But do you actually know what is happening behind the scenes? Let's break down Authentication from zero. 👇
             </p>
         </div>
 
-        <!-- 1/ Misconception -->
+        <!-- 1/ Intro Details -->
         <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 01 / Misconception</div>
-            <h2 class="card-title">Not Just Giant Servers</h2>
+            <div class="card-header-badge">Step 01 / Introduction</div>
+            <h2 class="card-title">Understand the Core</h2>
             <p class="card-body">
-                When most people hear the word **"Database"**, they imagine a giant machine sitting in a data center with thousands of cables, millions of records, and complex infrastructure.
+                Authentication is one of those concepts every developer uses...
             </p>
             <p class="card-body" style="color: #7dd3fc; font-weight: 600;">
-                That is only a tiny part of the story. The core idea is much simpler.
+                But many don't truly understand until they build it themselves. The good news? The idea is actually simple.
             </p>
         </div>
 
-        <!-- 2/ Simple definition -->
+        <!-- 2/ Question -->
         <div class="content-card card-border-black">
-            <div class="card-header-badge">Step 02 / Core Definition</div>
-            <h2 class="card-title">🗄️ What is a Database?</h2>
+            <div class="card-header-badge">Step 02 / Definition</div>
+            <h2 class="card-title">🔐 The Core Question</h2>
             <p class="card-body">
-                The absolute fundamental concept:
+                Authentication answers one question:
             </p>
             <div class="prompt-panel" style="background: rgba(255,255,255,0.02);">
-                <p class="card-body" style="font-weight: 700; text-align: center;">
-                    "Organized storage with a structured way to talk to it."
+                <p class="card-body" style="font-weight: 700; text-align: center; color: #a5b4fc;">
+                    "Are you really who you say you are?"
                 </p>
             </div>
             <p class="card-body">
-                That is it. Seriously. Everything else is built on top of that simple idea.
+                When you enter your email/password and click Login, the application is trying to verify your identity.
             </p>
         </div>
 
-        <!-- 3/ Daily uses (Contacts) -->
-        <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 03 / Daily Example</div>
-            <h2 class="card-title">Your Contacts App</h2>
+        <!-- 3/ Auth vs Auth -->
+        <div class="content-card card-border-red">
+            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 03 / Distinction</div>
+            <h2 class="card-title" style="color: #fda4af;">Authentication != Authorization</h2>
             <p class="card-body">
-                You already use databases every day without realizing it:
+                A common beginner mistake is confusing these two concepts. They are NOT the same thing:
             </p>
             <ul class="bullet-list">
                 <li class="bullet-item">
-                    <i class="ph-bold ph-user-check bullet-icon"></i>
+                    <i class="ph-bold ph-key-return bullet-icon"></i>
                     <div class="bullet-text">
-                        <strong>Contacts App</strong>
-                        <p>Stores names, phone numbers, emails, and addresses. Everything is organized and searchable. That is a database.</p>
+                        <strong>Authentication: Who are you?</strong>
+                        <p>This gets you through the front door of the system.</p>
+                    </div>
+                </li>
+                <li class="bullet-item">
+                    <i class="ph-bold ph-shield-check bullet-icon" style="color: var(--border-green);"></i>
+                    <div class="bullet-text">
+                        <strong>Authorization: What can you do?</strong>
+                        <p>Decides which rooms and endpoints you are allowed to enter.</p>
                     </div>
                 </li>
             </ul>
         </div>
 
-        <!-- 4/ WhatsApp -->
-        <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 04 / Communication Example</div>
-            <h2 class="card-title">WhatsApp Chat History</h2>
-            <ul class="bullet-list">
-                <li class="bullet-item">
-                    <i class="ph-bold ph-chats bullet-icon"></i>
-                    <div class="bullet-text">
-                        <strong>Chat Storage</strong>
-                        <p>Every message, timestamp, image, and sender parameter is stored somewhere, searchable, and retrievable. That is a database.</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <!-- 5/ Notebook -->
-        <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 05 / Physical Example</div>
-            <h2 class="card-title">📓 A Notebook Ledger</h2>
-            <p class="card-body">
-                Imagine a physical notebook where you track who owes you money:
-            </p>
-            <div class="prompt-panel" style="border-color: rgba(0, 230, 118, 0.2); background: rgba(0, 230, 118, 0.01);">
-                <p class="card-body" style="font-weight: 600;">
-                    Name: Harry &bull; Amount: $50 &bull; Date: June 5 &bull; Status: Pending
-                </p>
-            </div>
-            <p class="card-body">
-                Information stored in a structured way is technically a database, just a highly manual one.
-            </p>
-        </div>
-
-        <!-- 6/ Scale -->
+        <!-- 4/ The Flow -->
         <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 06 / Software Power</div>
-            <h2 class="card-title">What Makes Software Databases Special?</h2>
+            <div class="card-header-badge">Step 04 / Credentials</div>
+            <h2 class="card-title">Sending Credentials</h2>
             <p class="card-body">
-                The primary difference is **Scale**. Software databases can:
+                You enter your email and password on the page. The frontend sends those credentials to the server, and the server begins investigating.
             </p>
-            <ul class="bullet-list">
-                <li class="bullet-item">
-                    <i class="ph-bold ph-lightning bullet-icon"></i>
-                    <div class="bullet-text">
-                        <strong>Store millions of records and serve thousands of concurrent users in milliseconds.</strong>
-                    </div>
-                </li>
-                <li class="bullet-item">
-                    <i class="ph-bold ph-hard-drive bullet-icon"></i>
-                    <div class="bullet-text">
-                        <strong>Safely persist information for years.</strong>
-                    </div>
-                </li>
-            </ul>
         </div>
 
-        <!-- 7/ Relational (SQL) -->
-        <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 07 / Relational Systems</div>
-            <h2 class="card-title">Relational Databases (SQL)</h2>
-            <p class="card-body">
-                These store information inside tables, columns, and rows — just like a spreadsheet:
-            </p>
-            <ul class="bullet-list">
-                <li class="bullet-item">
-                    <i class="ph-bold ph-caret-right bullet-icon"></i>
-                    <div class="bullet-text">
-                        <strong>Popular Relational Tools</strong>
-                        <p>🐬 MySQL &bull; 🐘 PostgreSQL &bull; 🗃️ Microsoft SQL Server &bull; 📊 Oracle</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <!-- 8/ SQL Example -->
+        <!-- 5/ Step 1 Checks -->
         <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 08 / Table Schemas</div>
-            <h2 class="card-title">Tables & Relationships</h2>
-            
+            <div class="card-header-badge">Step 05 / Database Check</div>
+            <h2 class="card-title">Searching the User</h2>
+            <p class="card-body">
+                First, the server queries the database:
+            </p>
             <div class="workflow-stack">
                 <div class="workflow-node">
-                    <h4><span>Users Table</span></h4>
-                    <p>ID: 1 &bull; Name: Harry &bull; Email: harry@email.com</p>
+                    <h4><span>If No Email Exists</span> ❌ Login Fails</h4>
+                    <p>Stop execution immediately and respond with 401 Unauthorized.</p>
                 </div>
                 <div class="workflow-node" style="border-color: rgba(0, 230, 118, 0.25);">
-                    <h4><span>Orders Table</span></h4>
-                    <p>ID: 1 &bull; UserID: 1 &bull; Product: Laptop</p>
+                    <h4><span>If Email Exists</span> ✅ Continue</h4>
+                    <p>Proceed to verify the password credentials.</p>
                 </div>
             </div>
-            
+        </div>
+
+        <!-- 6/ Password Storage -->
+        <div class="content-card card-border-red">
+            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 06 / Passwords</div>
+            <h2 class="card-title" style="color: #fda4af;">Never Store Raw Passwords</h2>
             <p class="card-body">
-                Because the tables connect using identifiers (like UserID), we call them **Relational Databases**.
+                Here is a rule every single developer must know:
+            </p>
+            <p class="card-body" style="font-weight: 700; color: #f43f5e; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem;">
+                Your password is NOT stored in the database. At least, it shouldn't be.
             </p>
         </div>
 
-        <!-- 9/ SQL Queries -->
-        <div class="content-card card-border-purple">
-            <div class="card-header-badge">Step 09 / SQL Language</div>
-            <h2 class="card-title">SQL: Structured Query Language</h2>
+        <!-- 7/ Hashing -->
+        <div class="content-card card-border-blue">
+            <div class="card-header-badge">Step 07 / Security</div>
+            <h2 class="card-title">🔒 Storing Passwords as Hashes</h2>
             <p class="card-body">
-                To communicate with SQL databases, we ask questions in a standard structured syntax:
+                Instead of plaintext, the database stores a **cryptographic hash** — a scrambled, unreadable version of the password:
+            </p>
+            <div class="prompt-panel">
+                <div class="prompt-text"># Plaintext
+password123
+
+# Encrypted Hash
+$2b$10$7Y2kPxM9q...</div>
+            </div>
+            <p class="card-body">
+                Hashing functions are strictly **one-way**. You cannot reverse a hash back into the original password.
+            </p>
+        </div>
+
+        <!-- 8/ Verification -->
+        <div class="content-card card-border-green">
+            <div class="card-header-badge">Step 08 / Verification</div>
+            <h2 class="card-title">Comparing Hashes</h2>
+            <p class="card-body">
+                When you attempt to log in:
+            </p>
+            <ul class="bullet-list">
+                <li class="bullet-item">
+                    <i class="ph-bold ph-key-return bullet-icon"></i>
+                    <div class="bullet-text">
+                        <strong>Hashing input</strong>
+                        <p>Server takes the password you typed and passes it through the same hashing function.</p>
+                    </div>
+                </li>
+                <li class="bullet-item">
+                    <i class="ph-bold ph-swap bullet-icon"></i>
+                    <div class="bullet-text">
+                        <strong>Matching hashes</strong>
+                        <p>Compares this new hash with the database hash. If they match: Login successful.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 9/ Stateless HTTP -->
+        <div class="content-card card-border-black">
+            <div class="card-header-badge">Step 09 / HTTP Protocols</div>
+            <h2 class="card-title">The Stateless Problem</h2>
+            <p class="card-body">
+                Now the server knows: *"Yes, this is Harry."*
+            </p>
+            <p class="card-body" style="color: #a5b4fc; font-weight: 600;">
+                But a new problem appears: How does it remember you on your next requests?
+            </p>
+        </div>
+
+        <!-- 10/ Statelessness -->
+        <div class="content-card card-border-red">
+            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 10 / Statelessness</div>
+            <h2 class="card-title" style="color: #fda4af;">HTTP has No Memory</h2>
+            <p class="card-body">
+                Every single request is treated like a brand-new conversation. The server forgets who you are immediately after sending a response.
+            </p>
+            <p class="card-body" style="font-weight: 700; color: #f43f5e;">
+                ⚠️ We need a way to remember user states.
+            </p>
+        </div>
+
+        <!-- 11/ Sessions -->
+        <div class="content-card card-border-blue">
+            <div class="card-header-badge">Step 11 / Sessions</div>
+            <h2 class="card-title">🍪 Cookie-Based Sessions</h2>
+            <p class="card-body">
+                The traditional solution:
+            </p>
+            <p class="card-body">
+                After login, the server creates a Session object and stores it in memory or a database. It then dispatches a unique **Session ID** back to the browser inside a Cookie.
+            </p>
+        </div>
+
+        <!-- 12/ Cookies -->
+        <div class="content-card card-border-green">
+            <div class="card-header-badge">Step 12 / Handshakes</div>
+            <h2 class="card-title">Automatic Identity Matching</h2>
+            <p class="card-body">
+                Now, every single outgoing browser request automatically attaches the cookie:
+            </p>
+            <div class="prompt-panel" style="border-color: rgba(0, 230, 118, 0.25);">
+                <div class="prompt-text">Cookie: session123</div>
+            </div>
+            <p class="card-body">
+                The server inspects the session ID, finds your logged-in profile details, and keeps you logged in.
+            </p>
+        </div>
+
+        <!-- 13/ Sessions Cost -->
+        <div class="content-card card-border-red">
+            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 13 / Sessions Cost</div>
+            <h2 class="card-title" style="color: #fda4af;">The Downside of Sessions</h2>
+            <p class="card-body">
+                The server must store and track every active session lookup.
+            </p>
+            <p class="card-body">
+                As applications scale to millions of concurrent users, managing this database state becomes extremely memory-intensive.
+            </p>
+        </div>
+
+        <!-- 14/ JWTs -->
+        <div class="content-card card-border-blue">
+            <div class="card-header-badge">Step 14 / Modern Tokens</div>
+            <h2 class="card-title">📦 JSON Web Tokens (JWT)</h2>
+            <p class="card-body">
+                Modern applications solve memory overhead using JWTs.
+            </p>
+            <p class="card-body" style="color: #7dd3fc; font-weight: 600;">
+                Instead of storing identity parameters on the server, user identity is stored directly inside the token itself on the client.
+            </p>
+        </div>
+
+        <!-- 15/ JWT Creation -->
+        <div class="content-card card-border-purple">
+            <div class="card-header-badge">Step 15 / Token Generation</div>
+            <h2 class="card-title">Token Signature</h2>
+            <p class="card-body">
+                After login, the server creates a token, signs it using a cryptographic secret key, and sends it back to the client:
             </p>
             <div class="prompt-panel" style="border-color: rgba(213, 0, 249, 0.25);">
-                <div class="prompt-text">SELECT * FROM orders 
-WHERE userID = 1;</div>
+                <div class="prompt-text"># JWT Structure
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</div>
             </div>
-            <p class="card-body">
-                You are simply asking questions to retrieve or insert parameters.
-            </p>
         </div>
 
-        <!-- 10/ Non-Relational (NoSQL) -->
-        <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 10 / Document Systems</div>
-            <h2 class="card-title">Non-Relational (NoSQL)</h2>
-            <p class="card-body">
-                These databases do not use strict tables. Instead, data is stored in flexible, dynamic structures — usually documents that look like JavaScript objects.
-            </p>
-        </div>
-
-        <!-- 11/ NoSQL Example -->
+        <!-- 16/ Authorization Header -->
         <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 11 / NoSQL Documents</div>
-            <h2 class="card-title">Document-Based Storage</h2>
+            <div class="card-header-badge">Step 16 / Token Handshakes</div>
+            <h2 class="card-title">The Authorization Header</h2>
+            <p class="card-body">
+                The client stores the token and sends it manually with every request:
+            </p>
             <div class="prompt-panel" style="border-color: rgba(0, 230, 118, 0.25);">
-                <div class="prompt-text">{
-  "name": "Harry",
-  "email": "harry@email.com",
-  "skills": ["JavaScript", "Node.js", "React"]
-}</div>
+                <div class="prompt-text">Authorization: Bearer TOKEN</div>
             </div>
             <p class="card-body">
-                This document layout is JSON. That is why JavaScript developers love **MongoDB** — it is flexible, easy to evolve, and simple to map in code.
+                The server parses the token, verifies the cryptographic signature, and immediately trusts your identity without checking a session database.
             </p>
         </div>
 
-        <!-- 12/ Which is better? -->
+        <!-- 17/ Session vs JWT -->
         <div class="content-card card-border-black">
-            <div class="card-header-badge">Step 12 / System Choice</div>
-            <h2 class="card-title">SQL vs. NoSQL: Which is Better?</h2>
-            <p class="card-body" style="font-weight: 700; color: #a5b4fc; text-align: center;">
-                Neither. They are different tools that solve different problems.
-            </p>
-            <p class="card-body">
-                Good developers learn both database models. Great developers know exactly when to select one over the other based on project metrics.
-            </p>
-        </div>
-
-        <!-- 13/ Core Lesson -->
-        <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 13 / Architecture Roles</div>
-            <h2 class="card-title">The Division of Labor</h2>
+            <div class="card-header-badge">Step 17 / Comparison</div>
+            <h2 class="card-title">Stateful vs. Stateless</h2>
+            
             <div class="workflow-stack">
                 <div class="workflow-node">
-                    <h4><span>🧠 Backend Engine</span> The Thinker</h4>
-                    <p>Processes requests, routes endpoints, handles business logic.</p>
+                    <h4><span>🍪 Sessions</span> Stateful</h4>
+                    <p>Identity is stored on the Server. Client carries the ID.</p>
                 </div>
-                <div class="workflow-node" style="border-color: rgba(0, 176, 255, 0.25);">
-                    <h4><span>🗄️ Database System</span> The Memory</h4>
-                    <p>Persists variables, stores profiles, remembers parameters.</p>
+                <div class="workflow-node" style="border-color: rgba(255, 255, 255, 0.15); background: rgba(255, 255, 255, 0.01);">
+                    <h4><span>📦 JWT</span> Stateless</h4>
+                    <p>Identity is stored on the Client. Server verifies signatures.</p>
                 </div>
             </div>
         </div>
 
-        <!-- 14/ Server restart -->
-        <div class="content-card card-border-red">
-            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 14 / System Memory</div>
-            <h2 class="card-title" style="color: #fda4af;">Without a Database...</h2>
+        <!-- 18/ OAuth -->
+        <div class="content-card card-border-blue">
+            <div class="card-header-badge">Step 18 / Social Logins</div>
+            <h2 class="card-title">🌐 OAuth Integration</h2>
             <p class="card-body">
-                Imagine Instagram without memory storage. You create an account, upload photos, gain followers — then the server restarts and everything vanishes.
+                OAuth is what powers social login buttons:
             </p>
-            <p class="card-body" style="font-weight: 700; color: var(--border-red);">
-                ❌ No Users &bull; ❌ No Posts &bull; ❌ No Messages &bull; ❌ No History
+            <p class="card-body" style="font-weight: 700; color: #00b0ff; text-align: center;">
+                "Login with Google &bull; Continue with Facebook &bull; Sign in with GitHub"
             </p>
+        </div>
+
+        <!-- 19/ OAuth Flow -->
+        <div class="content-card card-border-green">
+            <div class="card-header-badge">Step 19 / Trust Delegation</div>
+            <h2 class="card-title">Federated Trust</h2>
             <p class="card-body">
-                A database gives your application persistent memory. That is its actual purpose.
+                Instead of handling passwords yourself, you delegate validation to a trusted provider:
+            </p>
+            <div class="prompt-panel" style="background: rgba(0, 230, 118, 0.01); border-color: rgba(0, 230, 118, 0.25);">
+                <p class="card-body" style="font-weight: 600; text-align: center;">
+                    User logs into Google &rarr; Google confirms identity &rarr; Google sends token verification to your app &rarr; App logs you in.
+                </p>
+            </div>
+        </div>
+
+        <!-- 20/ OAuth Security -->
+        <div class="content-card card-border-green">
+            <div class="card-header-badge">Step 20 / Security Boundary</div>
+            <h2 class="card-title">No Password Leakage</h2>
+            <p class="card-body">
+                Your application never sees Google, Facebook, or GitHub passwords. The provider handles authentication, and your application simply receives confirmation.
             </p>
         </div>
 
         <!-- Summary -->
         <div class="content-card card-border-blue">
             <div class="card-header-badge">SUMMARY</div>
-            <h2 class="card-title">Database Recap</h2>
+            <h2 class="card-title">Authentication Summary</h2>
             <ul class="bullet-list">
                 <li class="bullet-item">
-                    <i class="ph-bold ph-arrow-circle-right bullet-icon"></i>
+                    <i class="ph-bold ph-check bullet-icon"></i>
                     <div class="bullet-text">
-                        <strong>Database = Organized Storage 🗄️</strong>
+                        <strong>Authentication = Proving Who You Are 🔐</strong>
                     </div>
                 </li>
                 <li class="bullet-item">
-                    <i class="ph-bold ph-arrow-circle-right bullet-icon"></i>
+                    <i class="ph-bold ph-check bullet-icon"></i>
                     <div class="bullet-text">
-                        <strong>SQL = Tables, Rows, Columns (PostgreSQL, MySQL) 📊</strong>
+                        <strong>Authorization = Access permissions 🚪</strong>
                     </div>
                 </li>
                 <li class="bullet-item">
-                    <i class="ph-bold ph-arrow-circle-right bullet-icon"></i>
+                    <i class="ph-bold ph-check bullet-icon"></i>
                     <div class="bullet-text">
-                        <strong>NoSQL = Flexible JSON Documents (MongoDB) 🍃</strong>
+                        <strong>Sessions = Server-side memory storage 🍪</strong>
                     </div>
                 </li>
                 <li class="bullet-item">
-                    <i class="ph-bold ph-arrow-circle-right bullet-icon"></i>
+                    <i class="ph-bold ph-check bullet-icon"></i>
                     <div class="bullet-text">
-                        <strong>Backend Thinks &bull; Database Remembers 🧠</strong>
+                        <strong>JWT = Client-side stateless token 📦</strong>
+                    </div>
+                </li>
+                <li class="bullet-item">
+                    <i class="ph-bold ph-check bullet-icon"></i>
+                    <div class="bullet-text">
+                        <strong>OAuth = Social validation delegation 🌐</strong>
                     </div>
                 </li>
             </ul>
@@ -289,12 +363,12 @@ WHERE userID = 1;</div>
         <!-- Final Thoughts -->
         <div class="content-card card-border-purple">
             <div class="card-header-badge">CONCLUSION</div>
-            <h2 class="card-title">The Memory of Your App</h2>
+            <h2 class="card-title">Ready to Build</h2>
             <p class="card-body" style="font-size: 1.4rem; font-style: italic; color: #ffffff; border-left: 4px solid var(--border-purple); padding-left: 1rem; margin: 1rem 0;">
-                "A database is simply the memory of your application."
+                "Once you understand Authentication, Sessions, JWTs, and OAuth... you are ready to build."
             </p>
             <p class="card-body">
-                Every application remembers because a database is doing its job. Master database architecture — it will make backend development start making sense.
+                Every login system is built on these core pillars. Master authentication to make backend engineering start getting really interesting.
             </p>
         </div>
 
