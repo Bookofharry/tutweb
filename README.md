@@ -3,7 +3,7 @@
 > **IMPORTANT NOTICE FOR ALL AI AGENTS (Gemini, Claude, Codex, GPT, Cursor, Copilot, etc.)**
 > 
 > **Repository Purpose:**
-> This repository is a static, plain HTML/CSS/JS website designed to be screen-recorded for social media tutorial videos. It is a linear, scroll-only page presenting educational programming content.
+> This repository is a static, plain HTML/CSS/JS website designed to be screen-recorded for social media tutorial videos. It is a linear, scroll-only page presenting educational programming content. every thing on the turtorial should be es6 , modern and advanced
 > 
 > **CRITICAL RULE: DO NOT ADD INTERACTIVE UI ELEMENTS OR MENUS.**
 > Future agents must **never** add complex navigation bars, dropdowns, calculators, sidebar tabs, databases, or client-side routers unless explicitly requested by the user. The user scrolls down the page linearly to record contents. All information must be fully pre-rendered, static, and visible at all times.
