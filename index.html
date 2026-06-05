@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentication Explained Simply</title>
+    <title>Hashing vs. Encryption Explained Simply</title>
     <link rel="stylesheet" href="style.css">
     <!-- Phosphor Icons for video visual support -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -22,339 +22,271 @@
         <div class="content-card card-border-black hero-card">
             <div class="card-header-badge">THREAD</div>
             <h1 class="card-title">
-                Authentication Explained:<br><span>How Login Systems Work</span>
+                Hashing vs. Encryption:<br><span>The Golden Security Rule</span>
             </h1>
             <p class="card-body" style="font-weight: 600; color: #a5b4fc;">
-                • Every app asks you to log in. But do you actually know what is happening behind the scenes? Let's break down Authentication from zero. 👇
+                • Hashing and Encryption are NOT the same thing. Mix them up, and you could accidentally build a security nightmare. Let's fix that today. 👇
             </p>
         </div>
 
         <!-- 1/ Intro Details -->
         <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 01 / Introduction</div>
-            <h2 class="card-title">Understand the Core</h2>
+            <div class="card-header-badge">Step 01 / Security Context</div>
+            <h2 class="card-title">Passwords Must Be Hashed</h2>
             <p class="card-body">
-                Authentication is one of those concepts every developer uses...
+                We know that passwords should never be stored in plain text. They should always be hashed.
             </p>
             <p class="card-body" style="color: #7dd3fc; font-weight: 600;">
-                But many don't truly understand until they build it themselves. The good news? The idea is actually simple.
+                A lot of beginners ask: "Why not just encrypt passwords instead?" Because hashing and encryption solve completely different problems.
             </p>
         </div>
 
-        <!-- 2/ Question -->
-        <div class="content-card card-border-black">
-            <div class="card-header-badge">Step 02 / Definition</div>
-            <h2 class="card-title">🔐 The Core Question</h2>
+        <!-- 2/ Encryption -->
+        <div class="content-card card-border-blue">
+            <div class="card-header-badge">Step 02 / Two-Way Process</div>
+            <h2 class="card-title">🔄 Encryption</h2>
             <p class="card-body">
-                Authentication answers one question:
+                Encryption is a two-way process:
             </p>
             <div class="prompt-panel" style="background: rgba(255,255,255,0.02);">
-                <p class="card-body" style="font-weight: 700; text-align: center; color: #a5b4fc;">
-                    "Are you really who you say you are?"
+                <p class="card-body" style="font-weight: 600; text-align: center;">
+                    You take data &rarr; Scramble it using a key &rarr; Store it safely &rarr; Reverse it later using the same key.
                 </p>
             </div>
-            <p class="card-body">
-                When you enter your email/password and click Login, the application is trying to verify your identity.
-            </p>
         </div>
 
-        <!-- 3/ Auth vs Auth -->
-        <div class="content-card card-border-red">
-            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 03 / Distinction</div>
-            <h2 class="card-title" style="color: #fda4af;">Authentication != Authorization</h2>
+        <!-- 3/ Locked Box Analogy -->
+        <div class="content-card card-border-green">
+            <div class="card-header-badge">Step 03 / Analogy</div>
+            <h2 class="card-title">📦 A Locked Box</h2>
             <p class="card-body">
-                A common beginner mistake is confusing these two concepts. They are NOT the same thing:
+                Think of encryption like a locked box:
             </p>
             <ul class="bullet-list">
                 <li class="bullet-item">
-                    <i class="ph-bold ph-key-return bullet-icon"></i>
+                    <i class="ph-bold ph-key bullet-icon"></i>
                     <div class="bullet-text">
-                        <strong>Authentication: Who are you?</strong>
-                        <p>This gets you through the front door of the system.</p>
-                    </div>
-                </li>
-                <li class="bullet-item">
-                    <i class="ph-bold ph-shield-check bullet-icon" style="color: var(--border-green);"></i>
-                    <div class="bullet-text">
-                        <strong>Authorization: What can you do?</strong>
-                        <p>Decides which rooms and endpoints you are allowed to enter.</p>
+                        <strong>Reversible Storage</strong>
+                        <p>You put something inside, lock it with a key. Later, if you have the key, you can open the box and retrieve the original item.</p>
                     </div>
                 </li>
             </ul>
         </div>
 
-        <!-- 4/ The Flow -->
+        <!-- 4/ Encryption Use Cases -->
         <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 04 / Credentials</div>
-            <h2 class="card-title">Sending Credentials</h2>
+            <div class="card-header-badge">Step 04 / Use Cases</div>
+            <h2 class="card-title">When to Encrypt</h2>
             <p class="card-body">
-                You enter your email and password on the page. The frontend sends those credentials to the server, and the server begins investigating.
+                Use encryption when you need to recover the original information later:
+            </p>
+            <ul class="bullet-list">
+                <li class="bullet-item">
+                    <i class="ph-bold ph-credit-card bullet-icon"></i>
+                    <div class="bullet-text">
+                        <strong>Credit Card Data</strong>
+                    </div>
+                </li>
+                <li class="bullet-item">
+                    <i class="ph-bold ph-file-text bullet-icon"></i>
+                    <div class="bullet-text">
+                        <strong>Sensitive Documents</strong>
+                    </div>
+                </li>
+                <li class="bullet-item">
+                    <i class="ph-bold ph-chat-centered-text bullet-icon"></i>
+                    <div class="bullet-text">
+                        <strong>Private Messages & Files</strong>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 5/ Hashing -->
+        <div class="content-card card-border-blue">
+            <div class="card-header-badge">Step 05 / One-Way Process</div>
+            <h2 class="card-title">🔒 Hashing</h2>
+            <p class="card-body">
+                Hashing is completely different. Hashing is a strict **one-way process**:
+            </p>
+            <p class="card-body" style="font-weight: 600; color: #7dd3fc;">
+                You take data, run it through a hashing algorithm, and retrieve a scrambling output. There is no reverse button.
             </p>
         </div>
 
-        <!-- 5/ Step 1 Checks -->
+        <!-- 6/ Hash Example -->
         <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 05 / Database Check</div>
-            <h2 class="card-title">Searching the User</h2>
-            <p class="card-body">
-                First, the server queries the database:
-            </p>
-            <div class="workflow-stack">
-                <div class="workflow-node">
-                    <h4><span>If No Email Exists</span> ❌ Login Fails</h4>
-                    <p>Stop execution immediately and respond with 401 Unauthorized.</p>
-                </div>
-                <div class="workflow-node" style="border-color: rgba(0, 230, 118, 0.25);">
-                    <h4><span>If Email Exists</span> ✅ Continue</h4>
-                    <p>Proceed to verify the password credentials.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 6/ Password Storage -->
-        <div class="content-card card-border-red">
-            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 06 / Passwords</div>
-            <h2 class="card-title" style="color: #fda4af;">Never Store Raw Passwords</h2>
-            <p class="card-body">
-                Here is a rule every single developer must know:
-            </p>
-            <p class="card-body" style="font-weight: 700; color: #f43f5e; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem;">
-                Your password is NOT stored in the database. At least, it shouldn't be.
-            </p>
-        </div>
-
-        <!-- 7/ Hashing -->
-        <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 07 / Security</div>
-            <h2 class="card-title">🔒 Storing Passwords as Hashes</h2>
-            <p class="card-body">
-                Instead of plaintext, the database stores a **cryptographic hash** — a scrambled, unreadable version of the password:
-            </p>
-            <div class="prompt-panel">
+            <div class="card-header-badge">Step 06 / Hashing Example</div>
+            <h2 class="card-title">One-Way Outputs</h2>
+            <div class="prompt-panel" style="border-color: rgba(0, 230, 118, 0.25);">
                 <div class="prompt-text"># Plaintext
 password123
 
-# Encrypted Hash
-$2b$10$7Y2kPxM9q...</div>
+# Generated Hash (Irreversible)
+$2b$10$8d9kPxM9...</div>
             </div>
             <p class="card-body">
-                Hashing functions are strictly **one-way**. You cannot reverse a hash back into the original password.
+                The output looks random. Most importantly, you cannot turn that hash output back into plaintext. The original value is gone.
             </p>
         </div>
 
-        <!-- 8/ Verification -->
+        <!-- 7/ Shredder Analogy -->
         <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 08 / Verification</div>
-            <h2 class="card-title">Comparing Hashes</h2>
+            <div class="card-header-badge">Step 07 / Analogy</div>
+            <h2 class="card-title">🗑️ A Shredder</h2>
             <p class="card-body">
-                When you attempt to log in:
+                Think of hashing like a paper shredder:
             </p>
             <ul class="bullet-list">
                 <li class="bullet-item">
-                    <i class="ph-bold ph-key-return bullet-icon"></i>
+                    <i class="ph-bold ph-scissors bullet-icon"></i>
                     <div class="bullet-text">
-                        <strong>Hashing input</strong>
-                        <p>Server takes the password you typed and passes it through the same hashing function.</p>
-                    </div>
-                </li>
-                <li class="bullet-item">
-                    <i class="ph-bold ph-swap bullet-icon"></i>
-                    <div class="bullet-text">
-                        <strong>Matching hashes</strong>
-                        <p>Compares this new hash with the database hash. If they match: Login successful.</p>
+                        <strong>Permanent Destruction</strong>
+                        <p>You put a document in, the shredder cuts it. You still have the pieces, but reconstructing the original document is practically impossible.</p>
                     </div>
                 </li>
             </ul>
         </div>
 
-        <!-- 9/ Stateless HTTP -->
+        <!-- 8/ Why hash? -->
         <div class="content-card card-border-black">
-            <div class="card-header-badge">Step 09 / HTTP Protocols</div>
-            <h2 class="card-title">The Stateless Problem</h2>
+            <div class="card-header-badge">Step 08 / Verification</div>
+            <h2 class="card-title">Passwords Only Need Verification</h2>
             <p class="card-body">
-                Now the server knows: *"Yes, this is Harry."*
+                Why would we want an irreversible process?
             </p>
-            <p class="card-body" style="color: #a5b4fc; font-weight: 600;">
-                But a new problem appears: How does it remember you on your next requests?
+            <p class="card-body" style="font-weight: 700; color: #a5b4fc; text-align: center;">
+                Because passwords do not need to be recovered. They only need to be verified.
+            </p>
+            <p class="card-body">
+                That is the huge architectural difference.
             </p>
         </div>
 
-        <!-- 10/ Statelessness -->
-        <div class="content-card card-border-red">
-            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 10 / Statelessness</div>
-            <h2 class="card-title" style="color: #fda4af;">HTTP has No Memory</h2>
-            <p class="card-body">
-                Every single request is treated like a brand-new conversation. The server forgets who you are immediately after sending a response.
-            </p>
-            <p class="card-body" style="font-weight: 700; color: #f43f5e;">
-                ⚠️ We need a way to remember user states.
-            </p>
-        </div>
-
-        <!-- 11/ Sessions -->
-        <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 11 / Sessions</div>
-            <h2 class="card-title">🍪 Cookie-Based Sessions</h2>
-            <p class="card-body">
-                The traditional solution:
-            </p>
-            <p class="card-body">
-                After login, the server creates a Session object and stores it in memory or a database. It then dispatches a unique **Session ID** back to the browser inside a Cookie.
-            </p>
-        </div>
-
-        <!-- 12/ Cookies -->
+        <!-- 9/ Creation Flow -->
         <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 12 / Handshakes</div>
-            <h2 class="card-title">Automatic Identity Matching</h2>
-            <p class="card-body">
-                Now, every single outgoing browser request automatically attaches the cookie:
-            </p>
+            <div class="card-header-badge">Step 09 / Storing the Hash</div>
+            <h2 class="card-title">Account Creation</h2>
             <div class="prompt-panel" style="border-color: rgba(0, 230, 118, 0.25);">
-                <div class="prompt-text">Cookie: session123</div>
+                <div class="prompt-text"># Input password123
+Password &rarr; Hashing Engine &rarr; Database stores only the Hash</div>
             </div>
             <p class="card-body">
-                The server inspects the session ID, finds your logged-in profile details, and keeps you logged in.
+                The database stores only the hash, never the plaintext password.
             </p>
         </div>
 
-        <!-- 13/ Sessions Cost -->
-        <div class="content-card card-border-red">
-            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 13 / Sessions Cost</div>
-            <h2 class="card-title" style="color: #fda4af;">The Downside of Sessions</h2>
-            <p class="card-body">
-                The server must store and track every active session lookup.
-            </p>
-            <p class="card-body">
-                As applications scale to millions of concurrent users, managing this database state becomes extremely memory-intensive.
-            </p>
-        </div>
-
-        <!-- 14/ JWTs -->
-        <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 14 / Modern Tokens</div>
-            <h2 class="card-title">📦 JSON Web Tokens (JWT)</h2>
-            <p class="card-body">
-                Modern applications solve memory overhead using JWTs.
-            </p>
-            <p class="card-body" style="color: #7dd3fc; font-weight: 600;">
-                Instead of storing identity parameters on the server, user identity is stored directly inside the token itself on the client.
-            </p>
-        </div>
-
-        <!-- 15/ JWT Creation -->
-        <div class="content-card card-border-purple">
-            <div class="card-header-badge">Step 15 / Token Generation</div>
-            <h2 class="card-title">Token Signature</h2>
-            <p class="card-body">
-                After login, the server creates a token, signs it using a cryptographic secret key, and sends it back to the client:
-            </p>
-            <div class="prompt-panel" style="border-color: rgba(213, 0, 249, 0.25);">
-                <div class="prompt-text"># JWT Structure
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</div>
-            </div>
-        </div>
-
-        <!-- 16/ Authorization Header -->
+        <!-- 10/ Verification Flow -->
         <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 16 / Token Handshakes</div>
-            <h2 class="card-title">The Authorization Header</h2>
+            <div class="card-header-badge">Step 10 / Verification Flow</div>
+            <h2 class="card-title">The Login Comparison</h2>
             <p class="card-body">
-                The client stores the token and sends it manually with every request:
+                When you log in, the server hashes your input again and compares:
             </p>
-            <div class="prompt-panel" style="border-color: rgba(0, 230, 118, 0.25);">
-                <div class="prompt-text">Authorization: Bearer TOKEN</div>
-            </div>
-            <p class="card-body">
-                The server parses the token, verifies the cryptographic signature, and immediately trusts your identity without checking a session database.
-            </p>
-        </div>
-
-        <!-- 17/ Session vs JWT -->
-        <div class="content-card card-border-black">
-            <div class="card-header-badge">Step 17 / Comparison</div>
-            <h2 class="card-title">Stateful vs. Stateless</h2>
-            
             <div class="workflow-stack">
                 <div class="workflow-node">
-                    <h4><span>🍪 Sessions</span> Stateful</h4>
-                    <p>Identity is stored on the Server. Client carries the ID.</p>
-                </div>
-                <div class="workflow-node" style="border-color: rgba(255, 255, 255, 0.15); background: rgba(255, 255, 255, 0.01);">
-                    <h4><span>📦 JWT</span> Stateless</h4>
-                    <p>Identity is stored on the Client. Server verifies signatures.</p>
+                    <h4><span>Stored Hash == New Hash</span> ✅ Access Granted</h4>
+                    <p>Both hashes match, verifying identity.</p>
                 </div>
             </div>
+            <p class="card-body">
+                The server never needed to know your actual password — only the matching hashes.
+            </p>
         </div>
 
-        <!-- 18/ OAuth -->
-        <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 18 / Social Logins</div>
-            <h2 class="card-title">🌐 OAuth Integration</h2>
+        <!-- 11/ Decryption Key Danger -->
+        <div class="content-card card-border-red">
+            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 11 / Vulnerability</div>
+            <h2 class="card-title" style="color: #fda4af;">The Decryption Key Risk</h2>
             <p class="card-body">
-                OAuth is what powers social login buttons:
+                If you encrypted passwords, you would need a **Decryption Key**.
+            </p>
+            <p class="card-body" style="font-weight: 700; color: #f43f5e; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem;">
+                If an attacker steals that key, every single password becomes readable. One key exposes millions of accounts.
+            </p>
+        </div>
+
+        <!-- 12/ Hashing Safety -->
+        <div class="content-card card-border-green">
+            <div class="card-header-badge">Step 12 / Hashing Strength</div>
+            <h2 class="card-title">No Decryption Keys</h2>
+            <p class="card-body">
+                With hashing, there is no key, nothing to decrypt, and nothing to steal. Even if attackers gain full database access, they only retrieve one-way hashes.
+            </p>
+        </div>
+
+        <!-- 13/ Salting -->
+        <div class="content-card card-border-blue">
+            <div class="card-header-badge">Step 13 / Hashing Security</div>
+            <h2 class="card-title">🧂 Add Salt</h2>
+            <p class="card-body">
+                Imagine two users choose the exact same password: <code>password123</code>.
+            </p>
+            <p class="card-body">
+                Without salting, both generate the exact same hash, creating a major security vulnerability.
+            </p>
+        </div>
+
+        <!-- 14/ Rainbow Tables -->
+        <div class="content-card card-border-red">
+            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 14 / Attack Vector</div>
+            <h2 class="card-title" style="color: #fda4af;">🌈 Rainbow Table Attacks</h2>
+            <p class="card-body">
+                Attackers build massive lookup tables matching common passwords with common hashes, comparing them against your database to crack your hashes.
+            </p>
+        </div>
+
+        <!-- 15/ Salt Protection -->
+        <div class="content-card card-border-green">
+            <div class="card-header-badge">Step 15 / Protection</div>
+            <h2 class="card-title">Salts Block Rainbow Tables</h2>
+            <p class="card-body">
+                A salt solves this. Before hashing, the server adds a random string:
+            </p>
+            <div class="prompt-panel" style="border-color: rgba(0, 230, 118, 0.25);">
+                <div class="prompt-text">password123 + x8f92z (Unique Salt)</div>
+            </div>
+            <p class="card-body">
+                Now, identical passwords produce completely different unique hashes (User A produces Hash A, User B produces Hash B).
+            </p>
+        </div>
+
+        <!-- 16/ Modern Libraries -->
+        <div class="content-card card-border-blue">
+            <div class="card-header-badge">Step 16 / Libraries</div>
+            <h2 class="card-title">Use Modern Standards</h2>
+            <p class="card-body">
+                Modern libraries handle this automatically:
             </p>
             <p class="card-body" style="font-weight: 700; color: #00b0ff; text-align: center;">
-                "Login with Google &bull; Continue with Facebook &bull; Sign in with GitHub"
+                bcrypt &bull; argon2 &bull; scrypt
             </p>
-        </div>
-
-        <!-- 19/ OAuth Flow -->
-        <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 19 / Trust Delegation</div>
-            <h2 class="card-title">Federated Trust</h2>
             <p class="card-body">
-                Instead of handling passwords yourself, you delegate validation to a trusted provider:
-            </p>
-            <div class="prompt-panel" style="background: rgba(0, 230, 118, 0.01); border-color: rgba(0, 230, 118, 0.25);">
-                <p class="card-body" style="font-weight: 600; text-align: center;">
-                    User logs into Google &rarr; Google confirms identity &rarr; Google sends token verification to your app &rarr; App logs you in.
-                </p>
-            </div>
-        </div>
-
-        <!-- 20/ OAuth Security -->
-        <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 20 / Security Boundary</div>
-            <h2 class="card-title">No Password Leakage</h2>
-            <p class="card-body">
-                Your application never sees Google, Facebook, or GitHub passwords. The provider handles authentication, and your application simply receives confirmation.
+                These automatically generate salts and apply secure hashing. You don't have to write them manually, but you should understand why they exist.
             </p>
         </div>
 
         <!-- Summary -->
         <div class="content-card card-border-blue">
             <div class="card-header-badge">SUMMARY</div>
-            <h2 class="card-title">Authentication Summary</h2>
+            <h2 class="card-title">Security Summary</h2>
             <ul class="bullet-list">
                 <li class="bullet-item">
-                    <i class="ph-bold ph-check bullet-icon"></i>
+                    <i class="ph-bold ph-arrows-left-right bullet-icon"></i>
                     <div class="bullet-text">
-                        <strong>Authentication = Proving Who You Are 🔐</strong>
+                        <strong>Encryption = Two-way &bull; Uses a Key &bull; Reversible</strong>
                     </div>
                 </li>
                 <li class="bullet-item">
-                    <i class="ph-bold ph-check bullet-icon"></i>
+                    <i class="ph-bold ph-arrow-circle-right bullet-icon"></i>
                     <div class="bullet-text">
-                        <strong>Authorization = Access permissions 🚪</strong>
+                        <strong>Hashing = One-way &bull; No Key &bull; Irreversible</strong>
                     </div>
                 </li>
                 <li class="bullet-item">
-                    <i class="ph-bold ph-check bullet-icon"></i>
+                    <i class="ph-bold ph-plus-circle bullet-icon"></i>
                     <div class="bullet-text">
-                        <strong>Sessions = Server-side memory storage 🍪</strong>
-                    </div>
-                </li>
-                <li class="bullet-item">
-                    <i class="ph-bold ph-check bullet-icon"></i>
-                    <div class="bullet-text">
-                        <strong>JWT = Client-side stateless token 📦</strong>
-                    </div>
-                </li>
-                <li class="bullet-item">
-                    <i class="ph-bold ph-check bullet-icon"></i>
-                    <div class="bullet-text">
-                        <strong>OAuth = Social validation delegation 🌐</strong>
+                        <strong>Salt = Random data added to block rainbow table attacks</strong>
                     </div>
                 </li>
             </ul>
@@ -363,12 +295,12 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</div>
         <!-- Final Thoughts -->
         <div class="content-card card-border-purple">
             <div class="card-header-badge">CONCLUSION</div>
-            <h2 class="card-title">Ready to Build</h2>
+            <h2 class="card-title">Locked Box vs. Shredder</h2>
             <p class="card-body" style="font-size: 1.4rem; font-style: italic; color: #ffffff; border-left: 4px solid var(--border-purple); padding-left: 1rem; margin: 1rem 0;">
-                "Once you understand Authentication, Sessions, JWTs, and OAuth... you are ready to build."
+                "📦 Encryption = A Locked Box. 🗑️ Hashing = A Shredder."
             </p>
-            <p class="card-body">
-                Every login system is built on these core pillars. Master authentication to make backend engineering start getting really interesting.
+            <p class="card-body" style="font-weight: 700;">
+                And passwords belong in the shredder, not the locked box. 🔐
             </p>
         </div>
 
