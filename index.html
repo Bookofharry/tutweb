@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Node.js Modules Explained Simply</title>
+    <title>REST APIs Explained Simply</title>
     <link rel="stylesheet" href="style.css">
     <!-- Phosphor Icons for video visual support -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -22,233 +22,268 @@
         <div class="content-card card-border-black hero-card">
             <div class="card-header-badge">THREAD</div>
             <h1 class="card-title">
-                Node.js Modules:<br><span>The 3 Types You Need to Know</span>
+                REST APIs Explained Simply:<br><span>The Middleman of the Web</span>
             </h1>
             <p class="card-body" style="font-weight: 600; color: #a5b4fc;">
-                🧵 If Node.js modules confuse you, you're not alone. This concept took me longer than I'd like to admit to fully understand. Let's fix that today. 👇
+                🧵 You use REST APIs every single day. Most people don't even realize it. Let's change that today. 👇
             </p>
         </div>
 
-        <!-- 1/ The Imports -->
+        <!-- 1/ Everywhere -->
         <div class="content-card card-border-purple">
-            <div class="card-header-badge">Step 01 / The Imports</div>
-            <h2 class="card-title">Where is it coming from?</h2>
+            <div class="card-header-badge">Step 01 / Real-World Use</div>
+            <h2 class="card-title">APIs Are Everywhere</h2>
             <p class="card-body">
-                When you start learning Node.js, one of the first confusing things you'll see is this:
+                REST APIs power almost the entire internet you use daily.
             </p>
-            <div class="prompt-panel">
-                <div class="prompt-text">import fs from 'node:fs'
-import express from 'express'
-import userController from './controllers/userController.js'</div>
-            </div>
-            <p class="card-body">
-                Everything is being imported. But where does it all exist? The answer is simple: there are only **3 types of modules in Node.js.**
-            </p>
+            <ul class="bullet-list">
+                <li class="bullet-item">
+                    <i class="ph-bold ph-sun-dim bullet-icon"></i>
+                    <div class="bullet-text">
+                        <strong>Checking the weather</strong>
+                    </div>
+                </li>
+                <li class="bullet-item">
+                    <i class="ph-bold ph-google-logo bullet-icon"></i>
+                    <div class="bullet-text">
+                        <strong>Logging in with Google</strong>
+                    </div>
+                </li>
+                <li class="bullet-item">
+                    <i class="ph-bold ph-car bullet-icon"></i>
+                    <div class="bullet-text">
+                        <strong>Tracking Uber drivers</strong>
+                    </div>
+                </li>
+                <li class="bullet-item">
+                    <i class="ph-bold ph-instagram-logo bullet-icon"></i>
+                    <div class="bullet-text">
+                        <strong>Loading Instagram feeds</strong>
+                    </div>
+                </li>
+            </ul>
         </div>
 
-        <!-- 2/ Built-in Modules -->
+        <!-- 2/ Restaurant Analogy -->
         <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 02 / Built-in</div>
-            <h2 class="card-title">Built-in Modules</h2>
+            <div class="card-header-badge">Step 02 / The Analogy</div>
+            <h2 class="card-title">The Restaurant Waiter</h2>
             <p class="card-body">
-                These come with Node.js itself.
+                Let's use the simplest analogy possible: 🍽️ A Restaurant.
+            </p>
+            <p class="card-body">
+                You're sitting at a table. The kitchen is where all the food is made. But you don't walk into the kitchen yourself. You tell the waiter what you want.
             </p>
             <p class="card-body" style="color: #7dd3fc; font-weight: 600;">
-                No installation. No npm command. No setup. They are already available the moment Node is installed on your computer.
+                The waiter takes your request to the kitchen and brings back a response.
             </p>
-            <ul class="bullet-list">
-                <li class="bullet-item">
-                    <i class="ph-bold ph-caret-right bullet-icon"></i>
-                    <div class="bullet-text">
-                        <strong>Examples of Built-in Tools</strong>
-                        <p>📁 fs (File System) &bull; 📂 path &bull; 🌐 http &bull; ⏰ timers</p>
-                    </div>
-                </li>
-            </ul>
         </div>
 
-        <!-- 3/ Built-in Example -->
+        <!-- 3/ Web Analogy -->
         <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 03 / Built-in Example</div>
-            <h2 class="card-title">Inside the Toolbox</h2>
-            <div class="prompt-panel" style="border-color: rgba(0, 230, 118, 0.25);">
-                <div class="prompt-text">import fs from 'node:fs'</div>
+            <div class="card-header-badge">Step 03 / Web Translation</div>
+            <h2 class="card-title">Client, Server, and API</h2>
+            <p class="card-body">
+                In web development, the roles map exactly like this:
+            </p>
+            <div class="workflow-stack">
+                <div class="workflow-node">
+                    <h4><span>👤 You</span> The Client</h4>
+                    <p>Sitting at the table, requesting resources.</p>
+                </div>
+                <div class="workflow-node" style="border-color: rgba(0, 230, 118, 0.25);">
+                    <h4><span>🍳 Kitchen</span> The Server</h4>
+                    <p>Where code executes and data is processed.</p>
+                </div>
+                <div class="workflow-node">
+                    <h4><span>🍽️ Waiter</span> The API</h4>
+                    <p>The middleman carrying requests and responses.</p>
+                </div>
             </div>
-            <p class="card-body">
-                You never ran <code>npm install fs</code> because Node already ships with it. Think of built-in modules as tools that come pre-packaged inside the Node.js toolbox.
-            </p>
         </div>
 
-        <!-- 4/ Third-Party Modules -->
-        <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 04 / Third-Party</div>
-            <h2 class="card-title">Third-Party Modules</h2>
-            <p class="card-body">
-                These are packages built by other developers in the community.
-            </p>
-            <p class="card-body">
-                They are published to npm for anyone to use, and you must download and install them into your project yourself.
-            </p>
-            <ul class="bullet-list">
-                <li class="bullet-item">
-                    <i class="ph-bold ph-caret-right bullet-icon"></i>
-                    <div class="bullet-text">
-                        <strong>Popular Packages</strong>
-                        <p>📦 Express &bull; 📦 Mongoose &bull; 📦 Dotenv &bull; 📦 Axios &bull; 📦 Nodemon</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <!-- 5/ Third-Party Example -->
-        <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 05 / Installing packages</div>
-            <h2 class="card-title">Installing from npm</h2>
-            <div class="prompt-panel" style="border-color: rgba(0, 230, 118, 0.25);">
-                <div class="prompt-text"># Install package
-npm install express
-
-# Import in code
-import express from 'express'</div>
-            </div>
-            <p class="card-body" style="font-weight: 700; color: #00e676;">
-                Someone else built it. You installed it. Now your project uses it.
-            </p>
-        </div>
-
-        <!-- 6/ node_modules -->
-        <div class="content-card card-border-red">
-            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 06 / node_modules</div>
-            <h2 class="card-title" style="color: #fda4af;">Don't Fear node_modules</h2>
-            <p class="card-body">
-                Ever wondered what the massive <code>node_modules</code> folder actually is?
-            </p>
-            <p class="card-body">
-                Many juniors are scared to touch it. Don't be. It's simply the storage home for your third-party packages. Everything installed through npm lives there. That's all.
-            </p>
-        </div>
-
-        <!-- 7/ Custom Modules -->
-        <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 07 / Custom Modules</div>
-            <h2 class="card-title">Custom Modules</h2>
-            <p class="card-body">
-                These are the modules YOU create yourself.
-            </p>
-            <p class="card-body">
-                As your project grows, keeping everything in one file becomes impossible. You split code into multiple files to stay organized. Those files become custom modules.
-            </p>
-        </div>
-
-        <!-- 8/ Custom Example -->
-        <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 08 / Exports & Imports</div>
-            <h2 class="card-title">Custom Module Flow</h2>
-            <div class="prompt-panel" style="border-color: rgba(0, 230, 118, 0.25);">
-                <div class="prompt-text">// database.js
-export default function connectDB() {
-  console.log('Database Connected')
-}
-
-// main.js
-import connectDB from './database.js'</div>
-            </div>
-            <p class="card-body">
-                You built it, exported it, and imported it. That is the baseline custom module loop.
-            </p>
-        </div>
-
-        <!-- 9/ Large Applications -->
+        <!-- 4/ What is REST? -->
         <div class="content-card card-border-black">
-            <div class="card-header-badge">Step 09 / Code Architecture</div>
-            <h2 class="card-title">Staying Organized</h2>
+            <div class="card-header-badge">Step 04 / Core Definition</div>
+            <h2 class="card-title">REST is a Set of Rules</h2>
             <p class="card-body">
-                Instead of putting 5,000 lines in one single file, custom modules let you organize directories:
+                REST is not a programming language. REST is not a framework.
             </p>
-            <div class="workflow-stack">
-                <div class="workflow-node">
-                    <h4><span>Split</span> Clean Modules</h4>
-                    <p>routes &bull; controllers &bull; models &bull; middleware &bull; utilities</p>
-                </div>
-            </div>
-            <p class="card-body" style="font-weight: 700;">
-                ✅ Every file becomes its own modular component.
+            <p class="card-body">
+                REST is simply a standard set of rules and constraints for how clients and servers communicate with each other.
+            </p>
+            <p class="card-body" style="font-weight: 700; color: #cbd5e1; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem;">
+                💡 It provides a standard way for applications to exchange data seamlessly.
             </p>
         </div>
 
-        <!-- 10/ Mental Model -->
-        <div class="content-card card-border-purple">
-            <div class="card-header-badge">Step 10 / Mental Model</div>
-            <h2 class="card-title">The Module Ecosystem</h2>
-            <div class="workflow-stack">
-                <div class="workflow-node">
-                    <h4><span>🏠 Built-in</span> Node Created</h4>
-                    <p>fs, path, http, timers</p>
-                </div>
-                <div class="workflow-node" style="border-color: rgba(213, 0, 249, 0.25);">
-                    <h4><span>📦 Third-Party</span> Community Created</h4>
-                    <p>express, mongoose, dotenv, axios</p>
-                </div>
-                <div class="workflow-node">
-                    <h4><span>🧠 Custom</span> You Created</h4>
-                    <p>database.js, userController.js, auth.js</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 11/ Instantly know -->
+        <!-- 5/ HTTP Methods -->
         <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 11 / Benefit</div>
-            <h2 class="card-title">Reading Code Faster</h2>
+            <div class="card-header-badge">Step 05 / HTTP Methods</div>
+            <h2 class="card-title">HTTP Methods</h2>
             <p class="card-body">
-                Once this mental model clicks, reading backend code becomes much easier. You'll instantly know:
+                REST APIs use HTTP Methods to execute actions. Think of these as instructions you're giving to the waiter:
             </p>
+            <p class="card-body" style="font-weight: 600; color: #7dd3fc;">
+                Each method tells the server what action you want to perform. There are 4 you'll use constantly.
+            </p>
+        </div>
+
+        <!-- 6/ GET Method -->
+        <div class="content-card card-border-green">
+            <div class="card-header-badge">Step 06 / GET Method</div>
+            <h2 class="card-title">📥 GET: Fetch Data</h2>
+            <p class="card-body">
+                Used to request information without making modifications.
+            </p>
+            <div class="prompt-panel" style="border-color: rgba(0, 230, 118, 0.25);">
+                <div class="prompt-text">GET /api/v1/users
+GET /api/v1/weather/today</div>
+            </div>
+            <p class="card-body">
+                Analogy: You're asking for the menu. You want information — nothing is being changed.
+            </p>
+        </div>
+
+        <!-- 7/ POST Method -->
+        <div class="content-card card-border-purple">
+            <div class="card-header-badge">Step 07 / POST Method</div>
+            <h2 class="card-title">📤 POST: Create Data</h2>
+            <p class="card-body">
+                Used to submit payloads and create new resources.
+            </p>
+            <div class="prompt-panel" style="border-color: rgba(213, 0, 249, 0.25);">
+                <div class="prompt-text">POST /api/v1/users (with body payload)
+POST /api/v1/orders</div>
+            </div>
+            <p class="card-body">
+                Analogy: You're placing your food order. Something new is being created.
+            </p>
+        </div>
+
+        <!-- 8/ PUT / PATCH Method -->
+        <div class="content-card card-border-red">
+            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 08 / Update Methods</div>
+            <h2 class="card-title" style="color: #fda4af;">✏️ PUT / PATCH: Update Data</h2>
+            <p class="card-body">
+                Used to modify resources that already exist.
+            </p>
+            <div class="prompt-panel" style="border-color: rgba(255, 51, 102, 0.25);">
+                <div class="prompt-text">PATCH /api/v1/users/102 (update profile picture)
+PUT /api/v1/products/40 (replace details)</div>
+            </div>
+            <p class="card-body">
+                Analogy: Changing your order after you've placed it. Something exists, you're modifying it.
+            </p>
+        </div>
+
+        <!-- 9/ DELETE Method -->
+        <div class="content-card card-border-red">
+            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 09 / Delete Method</div>
+            <h2 class="card-title" style="color: #fda4af;">🗑️ DELETE: Remove Data</h2>
+            <p class="card-body">
+                Used to destroy resources.
+            </p>
+            <div class="prompt-panel" style="border-color: rgba(255, 51, 102, 0.25);">
+                <div class="prompt-text">DELETE /api/v1/comments/98
+DELETE /api/v1/users/102</div>
+            </div>
+            <p class="card-body">
+                Analogy: Canceling your order entirely. The resource gets removed.
+            </p>
+        </div>
+
+        <!-- 10/ JSON Responses -->
+        <div class="content-card card-border-blue">
+            <div class="card-header-badge">Step 10 / The Format</div>
+            <h2 class="card-title">JSON: The API Language</h2>
+            <p class="card-body">
+                Servers respond with JavaScript Object Notation (JSON) payloads:
+            </p>
+            <div class="prompt-panel">
+                <div class="prompt-text">{
+  "name": "Harry",
+  "role": "Software Engineer"
+}</div>
+            </div>
+            <p class="card-body">
+                JSON is a structured format for exchanging data. Think of it as the language most APIs speak.
+            </p>
+        </div>
+
+        <!-- 11/ Backend vs Frontend -->
+        <div class="content-card card-border-black">
+            <div class="card-header-badge">Step 11 / Frontend vs Backend</div>
+            <h2 class="card-title">Building Kitchen & Table</h2>
             <ul class="bullet-list">
                 <li class="bullet-item">
-                    <i class="ph-bold ph-question bullet-icon"></i>
+                    <i class="ph-bold ph-hash bullet-icon"></i>
                     <div class="bullet-text">
-                        <strong>"Did Node create this?"</strong>
+                        <strong>🍳 Backend (Node, Express, Laravel)</strong>
+                        <p>You're building the kitchen. You decide: what requests can come in? What responses go back?</p>
                     </div>
                 </li>
                 <li class="bullet-item">
-                    <i class="ph-bold ph-question bullet-icon"></i>
+                    <i class="ph-bold ph-hash bullet-icon"></i>
                     <div class="bullet-text">
-                        <strong>"Did another developer create this?"</strong>
-                    </div>
-                </li>
-                <li class="bullet-item">
-                    <i class="ph-bold ph-question bullet-icon"></i>
-                    <div class="bullet-text">
-                        <strong>"Or did this project create it?"</strong>
+                        <strong>📱 Frontend (React, Next.js, Vanilla JS)</strong>
+                        <p>You're sitting at the table. Making requests, waiting for responses, and rendering data.</p>
                     </div>
                 </li>
             </ul>
+        </div>
+
+        <!-- 12/ The Complete Picture -->
+        <div class="content-card card-border-blue">
+            <div class="card-header-badge">Step 12 / The Complete Picture</div>
+            <h2 class="card-title">The Complete Flow</h2>
+            <div class="workflow-stack">
+                <div class="workflow-node">
+                    <h4><span>1</span> Frontend</h4>
+                    <p>Sends HTTP request with params or bodies.</p>
+                </div>
+                <div class="workflow-node">
+                    <h4><span>2</span> Waiter API</h4>
+                    <p>Receives and routes the request parameters.</p>
+                </div>
+                <div class="workflow-node">
+                    <h4><span>3</span> Server Kitchen</h4>
+                    <p>Processes requests, interacts with databases.</p>
+                </div>
+                <div class="workflow-node">
+                    <h4><span>4</span> JSON Response</h4>
+                    <p>Sends formatted data back to the interface.</p>
+                </div>
+            </div>
         </div>
 
         <!-- Summary -->
         <div class="content-card card-border-blue">
             <div class="card-header-badge">SUMMARY</div>
-            <h2 class="card-title">Node Modules Recap</h2>
-            <p class="card-body">
-                There are only 3 types of Node.js modules:
-            </p>
+            <h2 class="card-title">REST API Summary</h2>
             <ul class="bullet-list">
                 <li class="bullet-item">
-                    <i class="ph-bold ph-arrow-circle-right bullet-icon"></i>
+                    <i class="ph-bold ph-check bullet-icon"></i>
                     <div class="bullet-text">
-                        <strong>Built-in Modules (Come with Node)</strong>
+                        <strong>REST API = The Waiter 🍽️</strong>
                     </div>
                 </li>
                 <li class="bullet-item">
-                    <i class="ph-bold ph-arrow-circle-right bullet-icon"></i>
+                    <i class="ph-bold ph-check bullet-icon"></i>
                     <div class="bullet-text">
-                        <strong>Third-Party Modules (Installed via npm)</strong>
+                        <strong>GET = Fetch Data 📥 &bull; POST = Create Data 📤</strong>
                     </div>
                 </li>
                 <li class="bullet-item">
-                    <i class="ph-bold ph-arrow-circle-right bullet-icon"></i>
+                    <i class="ph-bold ph-check bullet-icon"></i>
                     <div class="bullet-text">
-                        <strong>Custom Modules (Created by you)</strong>
+                        <strong>PUT/PATCH = Update Data ✏️ &bull; DELETE = Remove Data 🗑️</strong>
+                    </div>
+                </li>
+                <li class="bullet-item">
+                    <i class="ph-bold ph-check bullet-icon"></i>
+                    <div class="bullet-text">
+                        <strong>JSON = Data format spoken 📦</strong>
                     </div>
                 </li>
             </ul>
@@ -257,12 +292,12 @@ import connectDB from './database.js'</div>
         <!-- Final Thoughts -->
         <div class="content-card card-border-purple">
             <div class="card-header-badge">CONCLUSION</div>
-            <h2 class="card-title">Master the Concepts</h2>
+            <h2 class="card-title">Stop Seeing Magic</h2>
             <p class="card-body" style="font-size: 1.4rem; font-style: italic; color: #ffffff; border-left: 4px solid var(--border-purple); padding-left: 1rem; margin: 1rem 0;">
-                "Don't try to memorize commands. Master the concepts first."
+                "You'll stop seeing apps as magic, and start seeing them as communicating systems."
             </p>
             <p class="card-body">
-                Once you understand where modules come from, the structure of a Node.js application starts making perfect sense.
+                Master APIs. They're one of the most important concepts every developer should understand.
             </p>
         </div>
 
