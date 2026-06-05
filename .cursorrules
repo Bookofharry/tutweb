@@ -1,0 +1,14 @@
+# Cursor Agent Rules for Developer Tutorial Site
+
+This file instructs Cursor AI when generating edits or suggestions in this repository.
+
+## Project Purpose
+This is a plain static website (`index.html`, `style.css`, `app.js`) designed to be screen-recorded for social media tutorial videos. It is a linear, scroll-only page.
+
+## Critical Instructions for Cursor
+- **NO Interactive UI / Accordions / Toggles**: Do not add slide menus, tabs, or interactive widgets. All text and visuals must be completely expanded, flat, and visible on the page at all times.
+- **Thick Color-Coded Borders**: Any card or block must have a thick `4px solid` border using the colors defined in `style.css` (`--border-red`, `--border-green`, `--border-blue`, `--border-purple`, `--border-black`).
+- **Screen-Recording Text Scaling**: All headings and body text must stay huge and legible for phone screens:
+  - Card Titles: `font-size: clamp(3rem, 7vw, 4.5rem);`
+  - Card Body: `font-size: clamp(1.4rem, 3.5vw, 1.85rem);`
+- **Keep Scripts Minimal**: Avoid writing complex client-side calculations or event listeners in `app.js`. Keep it clean.
