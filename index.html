@@ -37,9 +37,9 @@
                 When you start learning Node.js, one of the first confusing things you'll see is this:
             </p>
             <div class="prompt-panel">
-                <div class="prompt-text">const fs = require('fs')
-const express = require('express')
-const userController = require('./controllers/userController')</div>
+                <div class="prompt-text">import fs from 'node:fs'
+import express from 'express'
+import userController from './controllers/userController.js'</div>
             </div>
             <p class="card-body">
                 Everything is being imported. But where does it all exist? The answer is simple: there are only **3 types of modules in Node.js.**
@@ -72,7 +72,7 @@ const userController = require('./controllers/userController')</div>
             <div class="card-header-badge">Step 03 / Built-in Example</div>
             <h2 class="card-title">Inside the Toolbox</h2>
             <div class="prompt-panel" style="border-color: rgba(0, 230, 118, 0.25);">
-                <div class="prompt-text">const fs = require('fs')</div>
+                <div class="prompt-text">import fs from 'node:fs'</div>
             </div>
             <p class="card-body">
                 You never ran <code>npm install fs</code> because Node already ships with it. Think of built-in modules as tools that come pre-packaged inside the Node.js toolbox.
@@ -109,7 +109,7 @@ const userController = require('./controllers/userController')</div>
 npm install express
 
 # Import in code
-const express = require('express')</div>
+import express from 'express'</div>
             </div>
             <p class="card-body" style="font-weight: 700; color: #00e676;">
                 Someone else built it. You installed it. Now your project uses it.
@@ -146,13 +146,12 @@ const express = require('express')</div>
             <h2 class="card-title">Custom Module Flow</h2>
             <div class="prompt-panel" style="border-color: rgba(0, 230, 118, 0.25);">
                 <div class="prompt-text">// database.js
-function connectDB() {
+export default function connectDB() {
   console.log('Database Connected')
 }
-module.exports = connectDB
 
 // main.js
-const connectDB = require('./database')</div>
+import connectDB from './database.js'</div>
             </div>
             <p class="card-body">
                 You built it, exported it, and imported it. That is the baseline custom module loop.
