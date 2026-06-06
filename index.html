@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Learn Anything</title>
+    <title>System Design Explained</title>
     <link rel="stylesheet" href="style.css">
     <!-- Phosphor Icons for video visual support -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -22,198 +22,232 @@
         <div class="content-card card-border-black hero-card">
             <div class="card-header-badge">THREAD</div>
             <h1 class="card-title">
-                The Learning Process:<br><span>How to Master Anything</span>
+                System Design:<br><span>The Blueprint Behind the Code</span>
             </h1>
             <p class="card-body" style="font-weight: 600; color: #a5b4fc;">
-                School taught you <em>what</em> to learn. Almost nobody teaches you <em>how</em> to learn. That's why people spend hours watching tutorials, feeling productive... then sit down to build something and forget everything.
+                Every senior developer thinks about this. Most junior developers don't even know it exists.
             </p>
             <p class="card-body">
-                Here are 8 steps that changed how I learn anything. 👇
+                And it changes the way you think about software forever. 👇
             </p>
         </div>
 
-        <!-- 1/ Big Picture -->
+        <!-- 1/ Making it work -->
         <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 01 / Strategy</div>
-            <h2 class="card-title">🗺️ Get the Big Picture First</h2>
+            <div class="card-header-badge">Step 01 / The Goal</div>
+            <h2 class="card-title">Making It Work</h2>
             <p class="card-body">
-                Before diving into details, zoom out. Ask:
+                When you're learning to code, your goal is simple: Make it work.
+            </p>
+            <ul class="bullet-list">
+                <li class="bullet-item">
+                    <i class="ph-bold ph-check-circle bullet-icon" style="color: #4ade80;"></i>
+                    <div class="bullet-text">Return the right value</div>
+                </li>
+                <li class="bullet-item">
+                    <i class="ph-bold ph-check-circle bullet-icon" style="color: #4ade80;"></i>
+                    <div class="bullet-text">Fetch the right data</div>
+                </li>
+                <li class="bullet-item">
+                    <i class="ph-bold ph-check-circle bullet-icon" style="color: #4ade80;"></i>
+                    <div class="bullet-text">Render the page</div>
+                </li>
+                <li class="bullet-item">
+                    <i class="ph-bold ph-check-circle bullet-icon" style="color: #4ade80;"></i>
+                    <div class="bullet-text">Fix the bug</div>
+                </li>
+            </ul>
+            <p class="card-body" style="color: #7dd3fc; margin-top: 1rem;">
+                But eventually you'll discover something important: Making something work and making something work <em>well</em> are completely different challenges.
+            </p>
+        </div>
+
+        <!-- 2/ System Design -->
+        <div class="content-card card-border-green">
+            <div class="card-header-badge">Step 02 / The Blueprint</div>
+            <h2 class="card-title">System Design</h2>
+            <p class="card-body">
+                System Design is not about writing code. It's about planning how software should be built before you build it.
+            </p>
+            <div class="prompt-panel" style="border-color: rgba(0, 230, 118, 0.25);">
+                <p class="card-body" style="font-weight: 600; text-align: center;">
+                    🗺️ Structure<br>
+                    🧩 Architecture<br>
+                    🔄 Data Flow<br>
+                    📈 Scalability<br>
+                    🛡️ Reliability
+                </p>
+            </div>
+            <p class="card-body">
+                It's the blueprint behind the code.
+            </p>
+        </div>
+
+        <!-- 3-4/ The Chat App Example -->
+        <div class="content-card card-border-red">
+            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 03 / The Problem</div>
+            <h2 class="card-title" style="color: #fda4af;">The Growth Crash</h2>
+            <p class="card-body">
+                Imagine you build a chat application. Everything works perfectly. You test it. No bugs. No crashes. Life is good.
+            </p>
+            <p class="card-body">
+                Then someone shares it online. 5,000 people join within an hour.
+            </p>
+            <ul class="bullet-list" style="margin-top: 1rem;">
+                <li class="bullet-item">
+                    <i class="ph-bold ph-warning-circle bullet-icon" style="color: #f43f5e;"></i>
+                    <div class="bullet-text" style="color: #f43f5e; font-weight: 600;">Messages are delayed</div>
+                </li>
+                <li class="bullet-item">
+                    <i class="ph-bold ph-warning-circle bullet-icon" style="color: #f43f5e;"></i>
+                    <div class="bullet-text" style="color: #f43f5e; font-weight: 600;">Connections drop & the app crashes</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 5/ The Lesson -->
+        <div class="content-card card-border-black">
+            <div class="card-header-badge">Step 04 / The Lesson</div>
+            <h2 class="card-title">Not a Coding Problem</h2>
+            <p class="card-body">
+                Here's the important lesson: That wasn't a coding problem. Your code worked.
+            </p>
+            <p class="card-body" style="font-weight: 700; color: #a5b4fc; text-align: center; font-size: 1.5rem;">
+                The problem was the system.
+            </p>
+            <p class="card-body">
+                The architecture wasn't designed to handle growth. That's a System Design problem.
+            </p>
+        </div>
+
+        <!-- 6/ The Questions -->
+        <div class="content-card card-border-blue">
+            <div class="card-header-badge">Step 05 / Planning</div>
+            <h2 class="card-title">System Design Questions</h2>
+            <p class="card-body">
+                These questions matter long before the code is written:
+            </p>
+            <div class="prompt-panel" style="border-color: rgba(0, 176, 255, 0.25);">
+                <ul class="bullet-list" style="margin-top: 0;">
+                    <li class="bullet-item">
+                        <i class="ph-bold ph-database bullet-icon"></i>
+                        <div class="bullet-text">Where should data live?</div>
+                    </li>
+                    <li class="bullet-item">
+                        <i class="ph-bold ph-trend-up bullet-icon"></i>
+                        <div class="bullet-text">How do we handle more users?</div>
+                    </li>
+                    <li class="bullet-item">
+                        <i class="ph-bold ph-server-x bullet-icon"></i>
+                        <div class="bullet-text">What happens if one server fails?</div>
+                    </li>
+                    <li class="bullet-item">
+                        <i class="ph-bold ph-globe bullet-icon"></i>
+                        <div class="bullet-text">How do we stay fast worldwide?</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 7/ Junior vs Senior -->
+        <div class="content-card card-border-purple">
+            <div class="card-header-badge">Step 06 / Perspective</div>
+            <h2 class="card-title">Junior vs. Senior</h2>
+            <p class="card-body">
+                A junior developer might ask:<br>
+                <code style="background: rgba(255,255,255,0.1); padding: 5px; border-radius: 4px; color: #d8b4fe;">"How do I build this feature?"</code>
+            </p>
+            <p class="card-body" style="margin-top: 1rem;">
+                A senior developer often asks:<br>
+                <code style="background: rgba(255,255,255,0.1); padding: 5px; border-radius: 4px; color: #4ade80;">"How will this feature affect the entire system?"</code>
+            </p>
+            <p class="card-body" style="margin-top: 1rem;">
+                Both questions matter. But they operate at different levels.
+            </p>
+        </div>
+
+        <!-- 8/ Caching Example -->
+        <div class="content-card card-border-green">
+            <div class="card-header-badge">Step 07 / Data Limits</div>
+            <h2 class="card-title">Example: Caching</h2>
+            <p class="card-body">
+                Suppose every user request hits your database. It works. Until 100,000 users arrive. Now your database becomes overwhelmed.
+            </p>
+            <p class="card-body" style="font-weight: 600; color: #4ade80;">
+                A systems-minded developer starts thinking: "What can we store in memory instead?"
+            </p>
+            <p class="card-body">
+                That's called caching. And it exists because databases have limits.
+            </p>
+        </div>
+
+        <!-- 9-10/ Reliability Example -->
+        <div class="content-card card-border-red">
+            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 08 / Survival</div>
+            <h2 class="card-title" style="color: #fda4af;">Surviving Failures</h2>
+            <p class="card-body">
+                You deploy your application on one server. Then that server crashes. Now your entire business is offline.
+            </p>
+            <div class="workflow-stack">
+                <div class="workflow-node" style="border-left-color: #f43f5e;">
+                    <h4 style="color: #fda4af;">The goal isn't to build systems that never fail. That's impossible.</h4>
+                    <p>The goal is to build systems that survive failure.</p>
+                </div>
+            </div>
+            <p class="card-body">
+                Because eventually... something always fails.
+            </p>
+        </div>
+
+        <!-- 11-12/ Mindset Shift -->
+        <div class="content-card card-border-blue">
+            <div class="card-header-badge">Step 09 / The Mindset Shift</div>
+            <h2 class="card-title">The Scaling Problem</h2>
+            <p class="card-body" style="font-size: 1.3rem; font-weight: 600; color: #a5b4fc; text-align: center;">
+                Every successful application eventually becomes a scaling problem. Not a coding problem.
+            </p>
+            <p class="card-body" style="margin-top: 1rem;">
+                Twitter didn't struggle because engineers forgot JavaScript. YouTube didn't struggle because someone wrote a bad function. They struggled because millions of people showed up.
+            </p>
+            <p class="card-body">
+                They didn't just write good code. They built systems that could grow.
+            </p>
+        </div>
+
+        <!-- 13/ Why care now -->
+        <div class="content-card card-border-green">
+            <div class="card-header-badge">Step 10 / Why Care Now</div>
+            <h2 class="card-title">Start Asking Today</h2>
+            <p class="card-body">
+                System Design changes how you write code today. You start asking:
             </p>
             <ul class="bullet-list">
                 <li class="bullet-item">
                     <i class="ph-bold ph-question bullet-icon"></i>
-                    <div class="bullet-text">What is this?</div>
+                    <div class="bullet-text">What happens if this grows?</div>
                 </li>
                 <li class="bullet-item">
-                    <i class="ph-bold ph-wrench bullet-icon"></i>
-                    <div class="bullet-text">What problem does it solve?</div>
+                    <i class="ph-bold ph-question bullet-icon"></i>
+                    <div class="bullet-text">What happens if this fails?</div>
                 </li>
                 <li class="bullet-item">
-                    <i class="ph-bold ph-puzzle-piece bullet-icon"></i>
-                    <div class="bullet-text">Where does it fit?</div>
+                    <i class="ph-bold ph-question bullet-icon"></i>
+                    <div class="bullet-text">What happens if ten users become ten thousand?</div>
                 </li>
             </ul>
-            <p class="card-body" style="color: #7dd3fc; font-weight: 600; margin-top: 1rem;">
-                Spend 30 minutes understanding the landscape before learning the roads. Your brain remembers details better when it already understands the context.
-            </p>
         </div>
 
-        <!-- 2/ Pick One Source -->
-        <div class="content-card card-border-red">
-            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 02 / Focus</div>
-            <h2 class="card-title" style="color: #fda4af;">🎯 Pick One Good Source</h2>
-            <p class="card-body">
-                One of the biggest learning mistakes:
-            </p>
-            <div class="prompt-panel" style="background: rgba(255,255,255,0.02); border-color: rgba(255, 51, 102, 0.25);">
-                <p class="card-body" style="font-weight: 600; text-align: center; color: #f43f5e;">
-                    Watching 5 YouTube videos.<br>Reading 3 articles.<br>Starting 2 courses.<br>Finishing none.
-                </p>
-            </div>
-            <p class="card-body">
-                Pick one solid resource. Commit. Finish it. You can compare perspectives later. Scattered input creates scattered understanding.
-            </p>
-        </div>
-
-        <!-- 3/ Build Before Ready -->
-        <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 03 / Action</div>
-            <h2 class="card-title">🏗️ Build Before You Feel Ready</h2>
-            <p class="card-body">
-                This is where most people fail. They consume, consume, consume... and never build.
-            </p>
-            <div class="workflow-stack">
-                <div class="workflow-node" style="border-left-color: #4ade80;">
-                    <h4 style="color: #4ade80;">The moment you understand enough to create something small... Build it.</h4>
-                    <p>Not later. Now.</p>
-                </div>
-            </div>
-            <p class="card-body">
-                Learning becomes real when your hands get involved.
-            </p>
-        </div>
-
-        <!-- 4/ Walk Away -->
+        <!-- 14-15/ Progress -->
         <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 04 / Rest</div>
-            <h2 class="card-title">😴 Walk Away When You're Stuck</h2>
+            <div class="card-header-badge">Step 11 / Progression</div>
+            <h2 class="card-title">Features &rarr; Products</h2>
             <p class="card-body">
-                This sounds wrong. But it's not. Your brain keeps processing problems in the background.
-            </p>
-            <p class="card-body" style="color: #a5b4fc;">
-                Ever struggled with something all night... then solved it in 5 minutes the next morning? That's not luck. That's how learning works.
-            </p>
-            <p class="card-body" style="font-weight: 600; text-align: center;">
-                Sometimes the best thing you can do is close the laptop.
-            </p>
-        </div>
-
-        <!-- 5/ Teach It -->
-        <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 05 / Mastery</div>
-            <h2 class="card-title">🗣️ Teach It To Someone</h2>
-            <p class="card-body">
-                This is a superpower. If you can't explain it simply... you probably don't understand it deeply.
-            </p>
-            <ul class="bullet-list">
-                <li class="bullet-item">
-                    <i class="ph-bold ph-users bullet-icon"></i>
-                    <div class="bullet-text">Teach a friend.</div>
-                </li>
-                <li class="bullet-item">
-                    <i class="ph-bold ph-pencil-simple bullet-icon"></i>
-                    <div class="bullet-text">Write a post.</div>
-                </li>
-                <li class="bullet-item">
-                    <i class="ph-bold ph-video-camera bullet-icon"></i>
-                    <div class="bullet-text">Record a video.</div>
-                </li>
-            </ul>
-            <p class="card-body" style="color: #4ade80; margin-top: 1rem;">
-                Explain it to yourself. The moment you start teaching, your weak spots become obvious.
-            </p>
-        </div>
-
-        <!-- 6/ Go Deeper -->
-        <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 06 / Iteration</div>
-            <h2 class="card-title">🔁 Go Back And Go Deeper</h2>
-            <p class="card-body">
-                Most people think learning is:<br>
-                <code style="background: rgba(255,255,255,0.1); padding: 5px; border-radius: 4px;">Study once &rarr; Move on</code>
-            </p>
-            <p class="card-body">
-                Reality is:<br>
-                <code style="background: rgba(255,255,255,0.1); padding: 5px; border-radius: 4px;">Study &rarr; Build &rarr; Return &rarr; Understand More</code>
-            </p>
-            <p class="card-body" style="color: #7dd3fc; margin-top: 1rem;">
-                The second pass is always different. You now have context. Experience. Questions. The things that confused you before suddenly make sense.
-            </p>
-        </div>
-
-        <!-- 7/ Study Others -->
-        <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 07 / Observation</div>
-            <h2 class="card-title">👀 Study How Others Think</h2>
-            <p class="card-body">
-                Want to grow faster? Watch experienced people.
-            </p>
-            <p class="card-body" style="text-align: center; font-weight: 600;">
-                Read their code. Read their writing. Study their decisions.
-            </p>
-            <p class="card-body">
-                You won't just learn <em>what</em> they do. You'll learn <em>how</em> they think. That's where real growth happens.
-            </p>
-        </div>
-
-        <!-- 8/ Repeat -->
-        <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 08 / Instinct</div>
-            <h2 class="card-title">💪 Repeat Until It Becomes Instinct</h2>
-            <p class="card-body">
-                Understanding something once is not mastery. Mastery comes from repetition.
-            </p>
-            <p class="card-body" style="text-align: center; color: #4ade80; font-size: 1.5rem; font-weight: 700;">
-                Use it.<br>Build with it.<br>Teach it.<br>Apply it.
-            </p>
-            <p class="card-body">
-                Again. And again. And again. The goal is to stop thinking about the mechanics and start focusing on the problem.
-            </p>
-        </div>
-
-        <!-- 9/ The Truth -->
-        <div class="content-card card-border-red">
-            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 09 / The Truth</div>
-            <h2 class="card-title" style="color: #fda4af;">Consuming vs. Building</h2>
-            <p class="card-body">
-                Here's the truth. Most learners spend too much time here:
-            </p>
-            <p class="card-body" style="color: #f43f5e; font-weight: 600;">
-                📚 Consuming
-            </p>
-            <p class="card-body">
-                And not enough time here:
-            </p>
-            <p class="card-body" style="color: #4ade80; font-weight: 600;">
-                🏗️ Building<br>
-                🗣️ Teaching<br>
-                👀 Studying others
-            </p>
-            <p class="card-body" style="margin-top: 1rem;">
-                Those three activities accelerate learning more than almost anything else.
-            </p>
-        </div>
-
-        <!-- 10/ Transformation -->
-        <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 10 / Transformation</div>
-            <h2 class="card-title">Process > Intelligence</h2>
-            <p class="card-body">
-                The people who learn the fastest aren't necessarily the smartest. They're the people with the best learning process.
+                You don't need to master Load Balancers, Distributed Systems, or Message Queues today. But you should know they exist. Because one day you'll need them.
             </p>
             <div class="prompt-panel" style="border-color: rgba(0, 176, 255, 0.25);">
                 <p class="card-body" style="font-weight: 700; text-align: center; color: #7dd3fc;">
-                    They understand that learning isn't about information.<br>It's about transformation.
+                    The faster you start thinking about systems, the faster you move from:<br><br>
+                    "I can build features" &rarr; "I can build products"
                 </p>
             </div>
         </div>
@@ -221,39 +255,23 @@
         <!-- Summary -->
         <div class="content-card card-border-blue">
             <div class="card-header-badge">SUMMARY</div>
-            <h2 class="card-title">The 8 Steps</h2>
+            <h2 class="card-title">System Design Summary</h2>
             <ul class="bullet-list">
                 <li class="bullet-item">
                     <i class="ph-bold ph-map-trifold bullet-icon"></i>
-                    <div class="bullet-text"><strong>Big Picture First</strong></div>
+                    <div class="bullet-text"><strong>Planning Before Building</strong></div>
                 </li>
                 <li class="bullet-item">
-                    <i class="ph-bold ph-target bullet-icon"></i>
-                    <div class="bullet-text"><strong>One Good Source</strong></div>
+                    <i class="ph-bold ph-x-circle bullet-icon" style="color: #f43f5e;"></i>
+                    <div class="bullet-text"><strong>Not Just About Code</strong></div>
                 </li>
                 <li class="bullet-item">
-                    <i class="ph-bold ph-hammer bullet-icon"></i>
-                    <div class="bullet-text"><strong>Build Early</strong></div>
+                    <i class="ph-bold ph-check-circle bullet-icon" style="color: #4ade80;"></i>
+                    <div class="bullet-text"><strong>About Structure & Data Flow</strong></div>
                 </li>
                 <li class="bullet-item">
-                    <i class="ph-bold ph-bed bullet-icon"></i>
-                    <div class="bullet-text"><strong>Rest When Stuck</strong></div>
-                </li>
-                <li class="bullet-item">
-                    <i class="ph-bold ph-megaphone bullet-icon"></i>
-                    <div class="bullet-text"><strong>Teach It</strong></div>
-                </li>
-                <li class="bullet-item">
-                    <i class="ph-bold ph-arrows-clockwise bullet-icon"></i>
-                    <div class="bullet-text"><strong>Go Deeper</strong></div>
-                </li>
-                <li class="bullet-item">
-                    <i class="ph-bold ph-eyes bullet-icon"></i>
-                    <div class="bullet-text"><strong>Learn From Others</strong></div>
-                </li>
-                <li class="bullet-item">
-                    <i class="ph-bold ph-barbell bullet-icon"></i>
-                    <div class="bullet-text"><strong>Repeat Until Instinct</strong></div>
+                    <i class="ph-bold ph-check-circle bullet-icon" style="color: #4ade80;"></i>
+                    <div class="bullet-text"><strong>About Scale & Reliability</strong></div>
                 </li>
             </ul>
         </div>
@@ -261,16 +279,16 @@
         <!-- Final Thoughts -->
         <div class="content-card card-border-purple">
             <div class="card-header-badge">CONCLUSION</div>
-            <h2 class="card-title">Real Skill</h2>
+            <h2 class="card-title">Software That Lasts</h2>
             <p class="card-body" style="font-size: 1.2rem; font-weight: 500; color: #ffffff; border-left: 4px solid var(--border-purple); padding-left: 1rem; margin: 1rem 0;">
-                Most people think learning is: Read &rarr; Understand.<br><br>
-                It's actually: Learn &rarr; Build &rarr; Struggle &rarr; Teach &rarr; Repeat.
+                Most junior developers focus on: "How do I make this work?"<br><br>
+                Senior developers focus on: "What happens when 10,000 people use it?"
             </p>
             <p class="card-body" style="font-weight: 700;">
-                That's where real skill comes from. The goal isn't to remember information. The goal is to become the kind of person who can use it.
+                You don't need to become a System Design expert today. But you should start asking the questions.
             </p>
             <p class="card-body" style="color: #d8b4fe;">
-                Master the process of learning... and you'll be able to learn almost anything. 🚀
+                Because the developers who learn to think in systems don't just build software. They build software that lasts. 🚀
             </p>
         </div>
 
