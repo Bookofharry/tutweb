@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hashing vs. Encryption Explained Simply</title>
+    <title>HTTPS, SSL, and TLS Explained Simply</title>
     <link rel="stylesheet" href="style.css">
     <!-- Phosphor Icons for video visual support -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -22,247 +22,162 @@
         <div class="content-card card-border-black hero-card">
             <div class="card-header-badge">THREAD</div>
             <h1 class="card-title">
-                Hashing vs. Encryption:<br><span>The Golden Security Rule</span>
+                HTTPS, SSL & TLS:<br><span>The Browser Padlock</span>
             </h1>
             <p class="card-body" style="font-weight: 600; color: #a5b4fc;">
-                • Hashing and Encryption are NOT the same thing. Mix them up, and you could accidentally build a security nightmare. Let's fix that today. 👇
+                That little padlock 🔒 in your browser is doing a lot more than you think. Without it, your passwords, messages, and payment details could be exposed. Let's talk about HTTPS, SSL, and TLS. 👇
             </p>
         </div>
 
-        <!-- 1/ Intro Details -->
+        <!-- 1/ HTTP Protocol -->
         <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 01 / Security Context</div>
-            <h2 class="card-title">Passwords Must Be Hashed</h2>
+            <div class="card-header-badge">Step 01 / Web Communication</div>
+            <h2 class="card-title">🌐 HTTP</h2>
             <p class="card-body">
-                We know that passwords should never be stored in plain text. They should always be hashed.
+                Every time you visit a website, your browser needs to communicate with a server. That communication happens using a protocol called <strong>HTTP (HyperText Transfer Protocol)</strong>.
             </p>
             <p class="card-body" style="color: #7dd3fc; font-weight: 600;">
-                A lot of beginners ask: "Why not just encrypt passwords instead?" Because hashing and encryption solve completely different problems.
+                It's the language browsers and servers use to talk to each other.
             </p>
         </div>
 
-        <!-- 2/ Encryption -->
-        <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 02 / Two-Way Process</div>
-            <h2 class="card-title">🔄 Encryption</h2>
+        <!-- 2/ The Problem with HTTP -->
+        <div class="content-card card-border-red">
+            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 02 / Vulnerability</div>
+            <h2 class="card-title" style="color: #fda4af;">Raw HTTP is Unprotected</h2>
             <p class="card-body">
-                Encryption is a two-way process:
+                The problem? Raw HTTP is completely unprotected. Everything sent through HTTP travels as plain text.
             </p>
-            <div class="prompt-panel" style="background: rgba(255,255,255,0.02);">
-                <p class="card-body" style="font-weight: 600; text-align: center;">
-                    You take data &rarr; Scramble it using a key &rarr; Store it safely &rarr; Reverse it later using the same key.
+            <div class="prompt-panel" style="background: rgba(255,255,255,0.02); border-color: rgba(255, 51, 102, 0.25);">
+                <p class="card-body" style="font-weight: 600; text-align: center; color: #f43f5e;">
+                    👀 Anyone sitting in the middle can read it.<br>Passwords. Emails. Messages. Credit card numbers. Everything.
                 </p>
             </div>
         </div>
 
-        <!-- 3/ Locked Box Analogy -->
+        <!-- 3/ Postcard Analogy -->
         <div class="content-card card-border-green">
             <div class="card-header-badge">Step 03 / Analogy</div>
-            <h2 class="card-title">📦 A Locked Box</h2>
+            <h2 class="card-title">📬 A Postcard</h2>
             <p class="card-body">
-                Think of encryption like a locked box:
+                Imagine sending a postcard. Anyone handling the postcard can read what's written on it. That's basically how HTTP works.
             </p>
             <ul class="bullet-list">
                 <li class="bullet-item">
-                    <i class="ph-bold ph-key bullet-icon"></i>
+                    <i class="ph-bold ph-envelope-open bullet-icon"></i>
                     <div class="bullet-text">
-                        <strong>Reversible Storage</strong>
-                        <p>You put something inside, lock it with a key. Later, if you have the key, you can open the box and retrieve the original item.</p>
+                        <strong>Convenient? Yes. Secure? Absolutely not.</strong>
                     </div>
                 </li>
             </ul>
         </div>
 
-        <!-- 4/ Encryption Use Cases -->
-        <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 04 / Use Cases</div>
-            <h2 class="card-title">When to Encrypt</h2>
+        <!-- 4/ Man in the middle -->
+        <div class="content-card card-border-red">
+            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 04 / Attack Vector</div>
+            <h2 class="card-title" style="color: #fda4af;">☠️ Man-in-the-Middle Attack</h2>
             <p class="card-body">
-                Use encryption when you need to recover the original information later:
-            </p>
-            <ul class="bullet-list">
-                <li class="bullet-item">
-                    <i class="ph-bold ph-credit-card bullet-icon"></i>
-                    <div class="bullet-text">
-                        <strong>Credit Card Data</strong>
-                    </div>
-                </li>
-                <li class="bullet-item">
-                    <i class="ph-bold ph-file-text bullet-icon"></i>
-                    <div class="bullet-text">
-                        <strong>Sensitive Documents</strong>
-                    </div>
-                </li>
-                <li class="bullet-item">
-                    <i class="ph-bold ph-chat-centered-text bullet-icon"></i>
-                    <div class="bullet-text">
-                        <strong>Private Messages & Files</strong>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <!-- 5/ Hashing -->
-        <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 05 / One-Way Process</div>
-            <h2 class="card-title">🔒 Hashing</h2>
-            <p class="card-body">
-                Hashing is completely different. Hashing is a strict **one-way process**:
-            </p>
-            <p class="card-body" style="font-weight: 600; color: #7dd3fc;">
-                You take data, run it through a hashing algorithm, and retrieve a scrambling output. There is no reverse button.
-            </p>
-        </div>
-
-        <!-- 6/ Hash Example -->
-        <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 06 / Hashing Example</div>
-            <h2 class="card-title">One-Way Outputs</h2>
-            <div class="prompt-panel" style="border-color: rgba(0, 230, 118, 0.25);">
-                <div class="prompt-text"># Plaintext
-password123
-
-# Generated Hash (Irreversible)
-$2b$10$8d9kPxM9...</div>
-            </div>
-            <p class="card-body">
-                The output looks random. Most importantly, you cannot turn that hash output back into plaintext. The original value is gone.
-            </p>
-        </div>
-
-        <!-- 7/ Shredder Analogy -->
-        <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 07 / Analogy</div>
-            <h2 class="card-title">🗑️ A Shredder</h2>
-            <p class="card-body">
-                Think of hashing like a paper shredder:
-            </p>
-            <ul class="bullet-list">
-                <li class="bullet-item">
-                    <i class="ph-bold ph-scissors bullet-icon"></i>
-                    <div class="bullet-text">
-                        <strong>Permanent Destruction</strong>
-                        <p>You put a document in, the shredder cuts it. You still have the pieces, but reconstructing the original document is practically impossible.</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <!-- 8/ Why hash? -->
-        <div class="content-card card-border-black">
-            <div class="card-header-badge">Step 08 / Verification</div>
-            <h2 class="card-title">Passwords Only Need Verification</h2>
-            <p class="card-body">
-                Why would we want an irreversible process?
-            </p>
-            <p class="card-body" style="font-weight: 700; color: #a5b4fc; text-align: center;">
-                Because passwords do not need to be recovered. They only need to be verified.
-            </p>
-            <p class="card-body">
-                That is the huge architectural difference.
-            </p>
-        </div>
-
-        <!-- 9/ Creation Flow -->
-        <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 09 / Storing the Hash</div>
-            <h2 class="card-title">Account Creation</h2>
-            <div class="prompt-panel" style="border-color: rgba(0, 230, 118, 0.25);">
-                <div class="prompt-text"># Input password123
-Password &rarr; Hashing Engine &rarr; Database stores only the Hash</div>
-            </div>
-            <p class="card-body">
-                The database stores only the hash, never the plaintext password.
-            </p>
-        </div>
-
-        <!-- 10/ Verification Flow -->
-        <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 10 / Verification Flow</div>
-            <h2 class="card-title">The Login Comparison</h2>
-            <p class="card-body">
-                When you log in, the server hashes your input again and compares:
+                This creates a dangerous attack. An attacker intercepts communication between your browser and the server, then secretly reads or modifies the data.
             </p>
             <div class="workflow-stack">
-                <div class="workflow-node">
-                    <h4><span>Stored Hash == New Hash</span> ✅ Access Granted</h4>
-                    <p>Both hashes match, verifying identity.</p>
+                <div class="workflow-node" style="border-left-color: #f43f5e;">
+                    <h4 style="color: #fda4af;">📱 Browser &harr; 🥷 Attacker &harr; 🖥️ Server</h4>
+                    <p>Not ideal when passwords are involved.</p>
                 </div>
             </div>
-            <p class="card-body">
-                The server never needed to know your actual password — only the matching hashes.
-            </p>
         </div>
 
-        <!-- 11/ Decryption Key Danger -->
-        <div class="content-card card-border-red">
-            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 11 / Vulnerability</div>
-            <h2 class="card-title" style="color: #fda4af;">The Decryption Key Risk</h2>
-            <p class="card-body">
-                If you encrypted passwords, you would need a **Decryption Key**.
-            </p>
-            <p class="card-body" style="font-weight: 700; color: #f43f5e; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem;">
-                If an attacker steals that key, every single password becomes readable. One key exposes millions of accounts.
-            </p>
-        </div>
-
-        <!-- 12/ Hashing Safety -->
+        <!-- 5/ HTTPS -->
         <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 12 / Hashing Strength</div>
-            <h2 class="card-title">No Decryption Keys</h2>
+            <div class="card-header-badge">Step 05 / The Solution</div>
+            <h2 class="card-title">🔒 HTTPS</h2>
             <p class="card-body">
-                With hashing, there is no key, nothing to decrypt, and nothing to steal. Even if attackers gain full database access, they only retrieve one-way hashes.
+                That's why HTTPS exists. The extra letter matters.
+            </p>
+            <p class="card-body" style="font-weight: 600; font-size: 1.5rem; text-align: center; color: #4ade80;">
+                HyperText Transfer Protocol Secure<br><br>
+                It's simply: HTTP + Encryption
             </p>
         </div>
 
-        <!-- 13/ Salting -->
+        <!-- 6/ Locked Safe Analogy -->
+        <div class="content-card card-border-green">
+            <div class="card-header-badge">Step 06 / Analogy</div>
+            <h2 class="card-title">📦 A Locked Safe</h2>
+            <p class="card-body">
+                Think of HTTPS like this:
+            </p>
+            <ul class="bullet-list">
+                <li class="bullet-item">
+                    <i class="ph-bold ph-envelope-open bullet-icon"></i>
+                    <div class="bullet-text">
+                        <strong>HTTP = Postcard 📬</strong>
+                    </div>
+                </li>
+                <li class="bullet-item">
+                    <i class="ph-bold ph-lock-key bullet-icon"></i>
+                    <div class="bullet-text">
+                        <strong>HTTPS = Locked Safe 📦</strong>
+                    </div>
+                </li>
+            </ul>
+            <p class="card-body" style="color: #7dd3fc; margin-top: 1rem;">
+                The message still travels. But nobody can read it without the proper keys.
+            </p>
+        </div>
+
+        <!-- 7/ The Encrypted Tunnel -->
         <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 13 / Hashing Security</div>
-            <h2 class="card-title">🧂 Add Salt</h2>
-            <p class="card-body">
-                Imagine two users choose the exact same password: <code>password123</code>.
-            </p>
-            <p class="card-body">
-                Without salting, both generate the exact same hash, creating a major security vulnerability.
-            </p>
-        </div>
-
-        <!-- 14/ Rainbow Tables -->
-        <div class="content-card card-border-red">
-            <div class="card-header-badge" style="color: var(--border-red); background: rgba(255, 51, 102, 0.08);">Step 14 / Attack Vector</div>
-            <h2 class="card-title" style="color: #fda4af;">🌈 Rainbow Table Attacks</h2>
-            <p class="card-body">
-                Attackers build massive lookup tables matching common passwords with common hashes, comparing them against your database to crack your hashes.
-            </p>
-        </div>
-
-        <!-- 15/ Salt Protection -->
-        <div class="content-card card-border-green">
-            <div class="card-header-badge">Step 15 / Protection</div>
-            <h2 class="card-title">Salts Block Rainbow Tables</h2>
-            <p class="card-body">
-                A salt solves this. Before hashing, the server adds a random string:
-            </p>
-            <div class="prompt-panel" style="border-color: rgba(0, 230, 118, 0.25);">
-                <div class="prompt-text">password123 + x8f92z (Unique Salt)</div>
+            <div class="card-header-badge">Step 07 / Tunneling</div>
+            <h2 class="card-title">The Encrypted Tunnel</h2>
+            <div class="prompt-panel" style="border-color: rgba(0, 176, 255, 0.25);">
+                <div class="prompt-text">https://example.com</div>
             </div>
             <p class="card-body">
-                Now, identical passwords produce completely different unique hashes (User A produces Hash A, User B produces Hash B).
+                When you visit an HTTPS site, your browser creates an encrypted tunnel between itself and the server. Everything traveling through that tunnel becomes unreadable to outsiders. Even if intercepted.
             </p>
         </div>
 
-        <!-- 16/ Modern Libraries -->
+        <!-- 8/ SSL vs TLS -->
+        <div class="content-card card-border-black">
+            <div class="card-header-badge">Step 08 / Technology</div>
+            <h2 class="card-title">SSL vs TLS</h2>
+            <p class="card-body">
+                This is where SSL and TLS enter the picture. Most developers hear "SSL Certificate," but that's only partially correct.
+            </p>
+            <p class="card-body" style="font-weight: 700; color: #a5b4fc; text-align: center;">
+                SSL (Secure Sockets Layer) is obsolete.<br>
+                TLS (Transport Layer Security) is the modern standard.
+            </p>
+        </div>
+
+        <!-- 9/ Handshake -->
         <div class="content-card card-border-blue">
-            <div class="card-header-badge">Step 16 / Libraries</div>
-            <h2 class="card-title">Use Modern Standards</h2>
+            <div class="card-header-badge">Step 09 / Establishing Trust</div>
+            <h2 class="card-title">🤝 The TLS Handshake</h2>
             <p class="card-body">
-                Modern libraries handle this automatically:
+                To create the secure tunnel, your browser and the server perform a "Handshake". They exchange cryptographic keys and agree on how to encrypt the data.
             </p>
-            <p class="card-body" style="font-weight: 700; color: #00b0ff; text-align: center;">
-                bcrypt &bull; argon2 &bull; scrypt
+        </div>
+
+        <!-- 10/ Certificates -->
+        <div class="content-card card-border-green">
+            <div class="card-header-badge">Step 10 / Identity</div>
+            <h2 class="card-title">🪪 The Certificate</h2>
+            <p class="card-body">
+                But how do you know the server is who it claims to be? What if the attacker intercepts the handshake?
             </p>
             <p class="card-body">
-                These automatically generate salts and apply secure hashing. You don't have to write them manually, but you should understand why they exist.
+                A Certificate is like a digital ID card for the server. It proves the server's identity to your browser.
+            </p>
+        </div>
+
+        <!-- 11/ Certificate Authorities -->
+        <div class="content-card card-border-blue">
+            <div class="card-header-badge">Step 11 / Trust</div>
+            <h2 class="card-title">🏢 Certificate Authorities</h2>
+            <p class="card-body">
+                Who issues these ID cards? Certificate Authorities (CAs). They are trusted organizations that verify the server's identity and digitally sign the certificate.
             </p>
         </div>
 
@@ -272,21 +187,27 @@ Password &rarr; Hashing Engine &rarr; Database stores only the Hash</div>
             <h2 class="card-title">Security Summary</h2>
             <ul class="bullet-list">
                 <li class="bullet-item">
-                    <i class="ph-bold ph-arrows-left-right bullet-icon"></i>
+                    <i class="ph-bold ph-lock-key bullet-icon"></i>
                     <div class="bullet-text">
-                        <strong>Encryption = Two-way &bull; Uses a Key &bull; Reversible</strong>
+                        <strong>TLS = Modern encryption technology (SSL's replacement)</strong>
                     </div>
                 </li>
                 <li class="bullet-item">
-                    <i class="ph-bold ph-arrow-circle-right bullet-icon"></i>
+                    <i class="ph-bold ph-identification-card bullet-icon"></i>
                     <div class="bullet-text">
-                        <strong>Hashing = One-way &bull; No Key &bull; Irreversible</strong>
+                        <strong>Certificate = Server's digital ID card</strong>
                     </div>
                 </li>
                 <li class="bullet-item">
-                    <i class="ph-bold ph-plus-circle bullet-icon"></i>
+                    <i class="ph-bold ph-bank bullet-icon"></i>
                     <div class="bullet-text">
-                        <strong>Salt = Random data added to block rainbow table attacks</strong>
+                        <strong>Certificate Authority = Trusted organization that issues certificates</strong>
+                    </div>
+                </li>
+                <li class="bullet-item">
+                    <i class="ph-bold ph-shield-check bullet-icon"></i>
+                    <div class="bullet-text">
+                        <strong>Padlock = Encrypted connection + Verified identity</strong>
                     </div>
                 </li>
             </ul>
@@ -295,12 +216,12 @@ Password &rarr; Hashing Engine &rarr; Database stores only the Hash</div>
         <!-- Final Thoughts -->
         <div class="content-card card-border-purple">
             <div class="card-header-badge">CONCLUSION</div>
-            <h2 class="card-title">Locked Box vs. Shredder</h2>
-            <p class="card-body" style="font-size: 1.4rem; font-style: italic; color: #ffffff; border-left: 4px solid var(--border-purple); padding-left: 1rem; margin: 1rem 0;">
-                "📦 Encryption = A Locked Box. 🗑️ Hashing = A Shredder."
+            <h2 class="card-title">The Padlock</h2>
+            <p class="card-body" style="font-size: 1.2rem; font-weight: 500; color: #ffffff; border-left: 4px solid var(--border-purple); padding-left: 1rem; margin: 1rem 0;">
+                That tiny padlock in your browser represents decades of security engineering. Without it: Passwords could be intercepted. Messages could be read. Payments could be stolen.
             </p>
             <p class="card-body" style="font-weight: 700;">
-                And passwords belong in the shredder, not the locked box. 🔐
+                Users trust that little icon every day. As a developer, it's your job to understand what it's protecting. And now you do. 🚀
             </p>
         </div>
 
